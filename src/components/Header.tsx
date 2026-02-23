@@ -39,9 +39,12 @@ const Header: React.FC = () => {
                         </a>
                     </nav>
 
-                    <button className="hidden md:block px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition flex-shrink-0">
+                    <a
+                        href="#cta"
+                        className="hidden md:flex items-center justify-center px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition flex-shrink-0"
+                    >
                         {STRINGS.nav.joinWaitlist}
-                    </button>
+                    </a>
 
                     {/* Mobile Menu Button */}
                     <button
@@ -80,9 +83,13 @@ const Header: React.FC = () => {
                         >
                             {STRINGS.nav.forVenues}
                         </a>
-                        <button className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold w-full">
+                        <a
+                            href="#cta"
+                            className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold w-full text-center block"
+                            onClick={() => setIsOpen(false)}
+                        >
                             {STRINGS.nav.joinWaitlist}
-                        </button>
+                        </a>
                     </nav>
                 )}
             </div>

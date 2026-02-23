@@ -44,7 +44,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* So einfach geht's - How it Works */}
-            <section className="py-20 px-4 bg-gray-950">
+            <section id="how-it-works" className="py-20 px-4 bg-gray-950">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
                         {STRINGS.howItWorks.title}
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Warum GIGILUKO - Features */}
-            <section className="py-20 px-4 bg-black">
+            <section id="features" className="py-20 px-4 bg-black">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
                         {STRINGS.features.title}
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
             </section>
 
             {/* Für Alle Gemacht - For Everyone */}
-            <section className="py-20 px-4 bg-gray-950">
+            <section id="for-venues" className="py-20 px-4 bg-gray-950">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
                         {STRINGS.forEveryone.title}
@@ -158,7 +158,10 @@ const Home: React.FC = () => {
             </section>
 
             {/* CTA Section - Be Part Of The Revolution */}
-            <section className="py-20 px-4 bg-gradient-to-br from-black via-purple-900 to-black">
+            <section
+                id="cta"
+                className="py-20 px-4 bg-gradient-to-br from-black via-purple-900 to-black"
+            >
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                         {STRINGS.cta.title}
