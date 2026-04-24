@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
     return (
@@ -89,7 +90,7 @@ const Footer: React.FC = () => {
                             </li>
                             <li>
                                 <a
-                                    href="#"
+                                    href="mailto:support@gigiluko.com"
                                     className="hover:text-purple-400 transition"
                                 >
                                     Contact
@@ -105,36 +106,44 @@ const Footer: React.FC = () => {
                         </h4>
                         <ul className="text-gray-400 space-y-2">
                             <li>
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/privacy"
                                     className="hover:text-purple-400 transition"
                                 >
                                     Privacy Policy
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/privacy-de"
+                                    className="hover:text-purple-400 transition"
+                                >
+                                    Datenschutz (DE)
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/terms"
                                     className="hover:text-purple-400 transition"
                                 >
                                     Terms of Service
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/terms-de"
                                     className="hover:text-purple-400 transition"
                                 >
-                                    DSGVO
-                                </a>
+                                    Nutzungsbedingungen (DE)
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/impressum"
                                     className="hover:text-purple-400 transition"
                                 >
                                     Impressum
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
