@@ -1,11 +1,26 @@
 import React from "react";
-const PrivacyPolicy: React.FC = () => (
-  <div className="pt-48 pb-40 px-6 max-w-3xl mx-auto text-gray-400">
-    <h1 className="text-4xl font-black uppercase italic text-white mb-10">Privacy Policy (ENG)</h1>
-    <div className="space-y-6 text-sm leading-relaxed">
-      <p>GIGILUKO Technologies is committed to your privacy. Our core technology is based on anonymized data streams. We do not track individual movement profiles.</p>
-      <p>All data used for venue intelligence is aggregated to ensure 100% user anonymity while providing 100% real-time accuracy.</p>
-    </div>
-  </div>
-);
+import LegalPage from "../components/LegalPage";
+
+const PrivacyPolicy: React.FC = () => {
+    return (
+        <LegalPage title="Privacy Policy" lastUpdated="April 2026">
+            <section>
+                <h2>1. Controller</h2>
+                <p>The controller responsible for data processing under the EU General Data Protection Regulation (GDPR) is:</p>
+                <p className="contact-block"><strong>GIGILUKO Technologies UG (haftungsbeschränkt) i.Gr.</strong><br />Sirnauerstraße 1<br />73779 Deizisau<br />Germany<br /><br />Email: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a><br /><br />Managing Directors: Luis Gianluca Giuliano, Lukas Konstantin Haimayer</p>
+            </section>
+            <section>
+                <h2>2. General Information on Data Processing</h2>
+                <h3>2.1 Scope of Data Processing</h3>
+                <p>We process personal data of our users only insofar as this is necessary to provide a functional application and our content and services.</p>
+                <h3>2.2 Legal Basis</h3>
+                <ul>
+                    <li>Art. 6(1)(a) GDPR (consent) — for registration and profile creation</li>
+                    <li>Art. 6(1)(b) GDPR (contract performance) — to provide app functions</li>
+                    <li>Art. 6(1)(f) GDPR (legitimate interests) — to ensure technical functionality</li>
+                </ul>
+            </section>
+        </LegalPage>
+    );
+};
 export default PrivacyPolicy;

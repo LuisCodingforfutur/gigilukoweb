@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Venues from "./pages/Venues";
-import Users from "./pages/Users"; // Deine echte Users-Seite wird wieder geladen!
-import Imprint from "./pages/Imprint";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
+import Users from "./pages/Users"; // Deine ECHTE Users-Seite
+import Impressum from "./pages/Impressum";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicyDE from "./pages/PrivacyPolicyDE";
+import TermsOfService from "./pages/TermsOfService";
+import TermsOfServiceDE from "./pages/TermsOfServiceDE";
 
 const App: React.FC = () => {
   return (
@@ -16,13 +18,14 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/venues" element={<Venues />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/imprint" element={<Imprint />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-de" element={<PrivacyPolicyDE />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/terms-de" element={<TermsOfServiceDE />} />
         </Routes>
       </Layout>
     </Router>
   );
 };
-
 export default App;
