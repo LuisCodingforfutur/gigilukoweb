@@ -1,318 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* ============================================================================
- * ADD THIS TO THE BOTTOM OF src/index.css
- * ============================================================================
- * Legal page typography — dark theme, readable long-form content.
- * Matches the nightlife aesthetic of the site.
- * ========================================================================= */
 
-.legal-prose {
-    font-size: 16px;
-    line-height: 1.75;
-    color: #d1d5db;
+:root {
+  color-scheme: dark;
 }
 
-.legal-prose section {
-    margin-bottom: 3rem;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #050505;
 }
 
-.legal-prose section:last-child {
-    margin-bottom: 0;
-}
-
-.legal-prose h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-}
-
-.legal-prose section:first-child h2 {
-    margin-top: 0;
-}
-
-.legal-prose h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #e5e7eb;
-    margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.legal-prose p {
-    margin-bottom: 1rem;
-    color: #d1d5db;
-}
-
-.legal-prose ul {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    list-style-type: disc;
-}
-
-.legal-prose ul li {
-    margin-bottom: 0.5rem;
-    color: #d1d5db;
-}
-
-.legal-prose a {
-    color: #c084fc;
-    text-decoration: underline;
-    text-decoration-color: rgba(192, 132, 252, 0.4);
-    transition: color 0.2s, text-decoration-color 0.2s;
-}
-
-.legal-prose a:hover {
-    color: #e879f9;
-    text-decoration-color: #e879f9;
-}
-
-.legal-prose strong {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.legal-prose em {
-    color: #9ca3af;
-    font-style: italic;
-    font-size: 0.95em;
-}
-
-.legal-prose .contact-block {
-    background: rgba(168, 85, 247, 0.08);
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin: 1rem 0;
-}
-
-.legal-prose .highlight-box {
-    background: linear-gradient(
-        to right,
-        rgba(168, 85, 247, 0.15),
-        rgba(236, 72, 153, 0.15)
-    );
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1rem 0;
-    color: #ffffff;
-}
-/* ============================================================================
- * ADD THIS TO THE BOTTOM OF src/index.css
- * ============================================================================
- * Legal page typography — dark theme, readable long-form content.
- * Matches the nightlife aesthetic of the site.
- * ========================================================================= */
-
-.legal-prose {
-    font-size: 16px;
-    line-height: 1.75;
-    color: #d1d5db;
-}
-
-.legal-prose section {
-    margin-bottom: 3rem;
-}
-
-.legal-prose section:last-child {
-    margin-bottom: 0;
-}
-
-.legal-prose h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-}
-
-.legal-prose section:first-child h2 {
-    margin-top: 0;
-}
-
-.legal-prose h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #e5e7eb;
-    margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.legal-prose p {
-    margin-bottom: 1rem;
-    color: #d1d5db;
-}
-
-.legal-prose ul {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    list-style-type: disc;
-}
-
-.legal-prose ul li {
-    margin-bottom: 0.5rem;
-    color: #d1d5db;
-}
-
-.legal-prose a {
-    color: #c084fc;
-    text-decoration: underline;
-    text-decoration-color: rgba(192, 132, 252, 0.4);
-    transition: color 0.2s, text-decoration-color 0.2s;
-}
-
-.legal-prose a:hover {
-    color: #e879f9;
-    text-decoration-color: #e879f9;
-}
-
-.legal-prose strong {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.legal-prose em {
-    color: #9ca3af;
-    font-style: italic;
-    font-size: 0.95em;
-}
-
-.legal-prose .contact-block {
-    background: rgba(168, 85, 247, 0.08);
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin: 1rem 0;
-}
-
-.legal-prose .highlight-box {
-    background: linear-gradient(
-        to right,
-        rgba(168, 85, 247, 0.15),
-        rgba(236, 72, 153, 0.15)
-    );
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1rem 0;
-    color: #ffffff;
-}
-/* ============================================================================
- * ADD THIS TO THE BOTTOM OF src/index.css
- * ============================================================================
- * Legal page typography — dark theme, readable long-form content.
- * Matches the nightlife aesthetic of the site.
- * ========================================================================= */
-
-.legal-prose {
-    font-size: 16px;
-    line-height: 1.75;
-    color: #d1d5db;
-}
-
-.legal-prose section {
-    margin-bottom: 3rem;
-}
-
-.legal-prose section:last-child {
-    margin-bottom: 0;
-}
-
-.legal-prose h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-}
-
-.legal-prose section:first-child h2 {
-    margin-top: 0;
-}
-
-.legal-prose h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #e5e7eb;
-    margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.legal-prose p {
-    margin-bottom: 1rem;
-    color: #d1d5db;
-}
-
-.legal-prose ul {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    list-style-type: disc;
-}
-
-.legal-prose ul li {
-    margin-bottom: 0.5rem;
-    color: #d1d5db;
-}
-
-.legal-prose a {
-    color: #c084fc;
-    text-decoration: underline;
-    text-decoration-color: rgba(192, 132, 252, 0.4);
-    transition: color 0.2s, text-decoration-color 0.2s;
-}
-
-.legal-prose a:hover {
-    color: #e879f9;
-    text-decoration-color: #e879f9;
-}
-
-.legal-prose strong {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.legal-prose em {
-    color: #9ca3af;
-    font-style: italic;
-    font-size: 0.95em;
-}
-
-.legal-prose .contact-block {
-    background: rgba(168, 85, 247, 0.08);
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin: 1rem 0;
-}
-
-.legal-prose .highlight-box {
-    background: linear-gradient(
-        to right,
-        rgba(168, 85, 247, 0.15),
-        rgba(236, 72, 153, 0.15)
-    );
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1rem 0;
-    color: #ffffff;
+/* HIGH-END TYPOGRAPHY & EFFECTS */
+@layer base {
+  h1, h2, h3 {
+    @apply tracking-tighter;
+  }
 }
 
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
+
 .animate-gradient-x {
   background-size: 200% 200%;
-  animation: gradient-x 5s ease infinite;
+  animation: gradient-x 8s ease infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+/* BORDER RADIUS FIX FOR SAFARI */
+.backdrop-blur-xl {
+  -webkit-backdrop-filter: blur(24px);
 }
