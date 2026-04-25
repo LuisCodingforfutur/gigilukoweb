@@ -7,9 +7,7 @@ import Venues from "./pages/Venues";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import AGB from "./pages/AGB";
-
-const App: React.FC = () => {
-  return (
+const App: React.FC = () => (
     <Router>
       <Layout>
         <Routes>
@@ -22,6 +20,5 @@ const App: React.FC = () => {
         </Routes>
       </Layout>
     </Router>
-  );
-}
+);
 export default App;
