@@ -25,8 +25,10 @@ const Home: React.FC = () => {
             </div>
             
             <div className="bg-transparent dark:bg-white p-2 rounded-[35px] shadow-none dark:shadow-[0_0_50px_rgba(168,85,247,0.3)] mb-10 inline-block border border-black/10 dark:border-none">
-                <img src="/logo-darkmode.jpg" alt="GIGILUKO Icon" className="w-24 h-24 rounded-[28px] object-cover dark:hidden" />
-                <img src="/logo-lightmode.jpg" alt="GIGILUKO Icon" className="w-24 h-24 rounded-[28px] object-cover hidden dark:block" />
+                {/* Zeige Schwarzes Logo im hellen Modus (dark:hidden) */}
+                <img src="/logo-black.jpg" alt="GIGILUKO Icon" className="w-24 h-24 rounded-[28px] object-cover dark:hidden" />
+                {/* Zeige Weißes Logo im dunklen Modus (hidden dark:block) */}
+                <img src="/logo-white.jpg" alt="GIGILUKO Icon" className="w-24 h-24 rounded-[28px] object-cover hidden dark:block" />
             </div>
 
             <h1 className="text-6xl md:text-[140px] font-black mb-8 leading-[0.85] text-purple-600 uppercase italic">
