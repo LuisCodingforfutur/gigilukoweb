@@ -32,10 +32,7 @@ const Home: React.FC = () => {
         <div className="relative min-h-screen font-sans selection:bg-purple-500/30 overflow-x-hidden bg-[#05000a] text-white">
             {/* THE MISTY BACKGROUND LAYER */}
             <div className="fixed inset-0 pointer-events-none">
-                {/* Base Gradient Schimmer */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent" />
-                
-                {/* Purple Clouds - Jetzt mit positivem Z-Index aber hinter dem Content */}
                 <div className="absolute top-[-10%] left-[-10%] w-[1000px] h-[1000px] bg-purple-600/15 blur-[160px] rounded-full opacity-60" />
                 <div className="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-purple-800/10 blur-[140px] rounded-full opacity-50" />
             </div>
@@ -48,13 +45,13 @@ const Home: React.FC = () => {
                         <span className="text-[10px] font-black tracking-[0.4em] text-gray-400 uppercase">Stuttgart 2026</span>
                     </div>
 
-                    <h1 className="text-7xl md:text-[180px] font-black mb-8 tracking-[-0.02em] leading-[0.8] text-white uppercase italic">
+                    <h1 className="text-6xl md:text-[140px] font-black mb-8 tracking-[-0.02em] leading-[0.85] text-white uppercase italic">
                         GIGI<br/>LUKO
                     </h1>
                     
-                    <p className="text-lg md:text-2xl text-gray-400 max-w-xl font-light mb-12">
-                        Digitalizing the scene. <br />
-                        <span className="text-gray-500 font-medium italic">The Operating System for Nightlife.</span>
+                    <p className="text-lg md:text-2xl text-gray-400 max-w-2xl font-light mb-12">
+                        Digitalizing every beat, every entry, every vibe. <br />
+                        <span className="text-gray-500 font-medium italic text-base md:text-lg">The Operating System for Nightlife.</span>
                     </p>
                 </section>
 
