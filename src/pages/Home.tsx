@@ -20,7 +20,7 @@ const Home: React.FC = () => {
             <div className="fixed inset-0 pointer-events-none -z-10">
                 <div className="absolute top-[-10%] left-[-10%] w-[1000px] h-[1000px] bg-purple-600/15 blur-[160px] rounded-full opacity-60" />
             </div>
-            <h1 className="text-6xl md:text-[140px] font-black mb-8 leading-[0.85] text-white uppercase italic">GIGI<br/>LUKO</h1>
+            <h1 className="text-6xl md:text-[140px] font-black mb-8 leading-[0.85] text-purple-600 uppercase italic">GIGI<br/>LUKO</h1>
             <p className="text-lg md:text-2xl text-gray-400 max-w-2xl font-light mb-12">Digitalizing every beat, every entry, every vibe.</p>
             <form onSubmit={handleWaitlist} className="max-w-md w-full bg-white/5 p-12 rounded-[50px] border border-white/10">
                 <input type="email" placeholder="E-Mail" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-white/5 border border-white/10 px-8 py-4 rounded-2xl mb-4 text-white text-center" />
