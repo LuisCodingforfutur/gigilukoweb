@@ -2,26 +2,29 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Users from "./pages/Users";
 import Venues from "./pages/Venues";
-import Impressum from "./pages/Impressum";
-import Datenschutz from "./pages/Datenschutz";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import AGB from "./pages/AGB";
+import Imprint from "./pages/Imprint";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
-const App: React.FC = () => (
+// Fallback für die Users-Seite, falls noch nicht erstellt
+const Users: React.FC = () => <div className="pt-48 text-center text-4xl font-black italic uppercase text-purple-600">Users (Coming Soon)</div>;
+
+const App: React.FC = () => {
+  return (
     <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/users" element={<Users />} />
           <Route path="/venues" element={<Venues />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/agb" element={<AGB />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/imprint" element={<Imprint />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </Layout>
     </Router>
-);
+  );
+};
+
 export default App;
