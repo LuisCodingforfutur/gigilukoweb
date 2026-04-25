@@ -9,7 +9,7 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => (
       <Link to="/" className="group pointer-events-auto">
         <div className="p-1 rounded-xl transition-all duration-500 bg-transparent dark:bg-white/5 border border-black/5 dark:border-white/10">
           <img 
-            src={isDark ? "/logo-white.jpg" : "/logo-black.jpg"} 
+            src={isDark ? "/logo-lightmode.jpg" : "/logo-darkmode.jpg"} 
             alt="GIGILUKO" 
             className="h-8 md:h-10 w-auto rounded-lg" 
           />
