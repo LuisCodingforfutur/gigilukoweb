@@ -1,37 +1,27 @@
-import React, { useLayoutEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import PrivacyPolicyDE from "./pages/PrivacyPolicyDE";
-import TermsOfService from "./pages/TermsOfService";
-import TermsOfServiceDE from "./pages/TermsOfServiceDE";
+import Users from "./pages/Users";
+import Venues from "./pages/Venues";
 import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
+import AGB from "./pages/AGB";
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, [pathname]);
-  return null;
-};
-
-const App: React.FC = () => {
-    return (
-        <Router>
-            <ScrollToTop />
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/privacy" element={<PrivacyPolicy />} />
-                    <Route path="/privacy-de" element={<PrivacyPolicyDE />} />
-                    <Route path="/terms" element={<TermsOfService />} />
-                    <Route path="/terms-de" element={<TermsOfServiceDE />} />
-                    <Route path="/impressum" element={<Impressum />} />
-                </Routes>
-            </Layout>
-        </Router>
-    );
-};
+function App() {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/venues" element={<Venues />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/agb" element={<AGB />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
+}
 
 export default App;
