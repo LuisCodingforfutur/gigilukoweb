@@ -8,9 +8,9 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => (
     <div className="max-w-7xl mx-auto flex justify-between items-center">
       <Link to="/" className="group pointer-events-auto">
         <div className="p-1 rounded-xl transition-all duration-500 bg-transparent dark:bg-white/5 border border-black/5 dark:border-white/10">
-          {/* Dunkler Modus = Weißes Logo, Heller Modus = Schwarzes Logo */}
+          {/* Dunkler Modus = Schwarzes Logo, Heller Modus = Weißes Logo */}
           <img 
-            src={isDark ? "/logo-white.jpg" : "/logo-black.jpg"} 
+            src={isDark ? "/logo-black.jpg" : "/logo-white.jpg"} 
             alt="GIGILUKO" 
             className="h-8 md:h-10 w-auto rounded-lg" 
           />
