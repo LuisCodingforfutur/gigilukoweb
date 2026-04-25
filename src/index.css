@@ -8,16 +8,9 @@
 
 body {
   margin: 0;
+  background-color: #0c001c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #050505;
-}
-
-/* HIGH-END TYPOGRAPHY & EFFECTS */
-@layer base {
-  h1, h2, h3 {
-    @apply tracking-tighter;
-  }
 }
 
 @keyframes gradient-x {
@@ -27,19 +20,14 @@ body {
 
 .animate-gradient-x {
   background-size: 200% 200%;
-  animation: gradient-x 8s ease infinite;
+  animation: gradient-x 10s ease infinite;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fade-in 1s ease-out forwards;
-}
-
-/* BORDER RADIUS FIX FOR SAFARI */
-.backdrop-blur-xl {
-  -webkit-backdrop-filter: blur(24px);
+  animation: fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
