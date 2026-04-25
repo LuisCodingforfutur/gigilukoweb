@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -7,7 +8,7 @@ import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import AGB from "./pages/AGB";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Layout>
@@ -23,4 +24,5 @@ function App() {
     </Router>
   );
 }
+
 export default App;
