@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { db } from "../firebaseConfig";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-
 const Home: React.FC = () => {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -16,7 +15,6 @@ const Home: React.FC = () => {
             setEmail("");
         } catch (error) { setStatus("error"); }
     };
-
     return (
         <div className="relative pt-48 pb-32 px-4 flex flex-col items-center justify-center text-center">
             <div className="fixed inset-0 pointer-events-none -z-10">
