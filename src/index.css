@@ -11,8 +11,15 @@ body {
   background-color: #0c001c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
+/* CUSTOM CURSOR & TYPOGRAPHY */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+/* ANIMATIONS */
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -20,14 +27,24 @@ body {
 
 .animate-gradient-x {
   background-size: 200% 200%;
-  animation: gradient-x 10s ease infinite;
+  animation: gradient-x 15s ease infinite;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* GLOW EFFECTS */
+.bg-purple-glow {
+  box-shadow: 0 0 50px -12px rgba(168, 85, 247, 0.4);
+}
+
+/* SMOOTH SCROLLING */
+html {
+  scroll-behavior: smooth;
 }
