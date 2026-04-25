@@ -6,7 +6,9 @@ import Users from "./pages/Users";
 import Venues from "./pages/Venues";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AGB from "./pages/AGB";
+
 const App: React.FC = () => (
     <Router>
       <Layout>
@@ -16,6 +18,7 @@ const App: React.FC = () => (
           <Route path="/venues" element={<Venues />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/agb" element={<AGB />} />
         </Routes>
       </Layout>
