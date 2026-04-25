@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -8,12 +8,15 @@ import TermsOfService from "./pages/TermsOfService";
 import TermsOfServiceDE from "./pages/TermsOfServiceDE";
 import Impressum from "./pages/Impressum";
 
-// Hilfskomponente, die bei jedem Routenwechsel nach oben scrollt
+// Verbesserte Scroll-Komponente
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  
+  useLayoutEffect(() => {
+    // Erzwingt das Scrollen nach oben ohne Verzögerung
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
+
   return null;
 };
 
