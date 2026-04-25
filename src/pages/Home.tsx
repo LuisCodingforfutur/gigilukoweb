@@ -59,9 +59,9 @@ const Home: React.FC = () => {
                 <div className="max-w-6xl mx-auto px-4 space-y-6 pb-40">
                     <div className="grid md:grid-cols-12 gap-6 text-left">
                         <div className="md:col-span-8 bg-white/5 border border-white/10 p-12 rounded-[50px] backdrop-blur-sm">
-                            <h2 className="text-4xl font-black mb-6 italic text-white uppercase tracking-tighter">FOMO Radar</h2>
+                            <h2 className="text-4xl font-black mb-6 italic text-white uppercase tracking-tighter">Live Radar</h2>
                             <p className="text-gray-500 text-lg leading-relaxed max-w-md mb-8 italic">
-                                Live Insights zur Crowd. Sieh die Nacht durch den Community Feed.
+                                Echtzeit-Einblicke in die Szene. Sieh die Nacht durch den Community Feed.
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 {["Live", "Community", "Vibe"].map(t => (
