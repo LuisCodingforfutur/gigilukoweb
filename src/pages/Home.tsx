@@ -24,7 +24,8 @@ const Home: React.FC = () => {
                 <div className="absolute top-[-10%] left-[-10%] w-[1000px] h-[1000px] bg-purple-600/10 dark:bg-purple-600/15 blur-[160px] rounded-full opacity-60" />
             </div>
             
-            <div className="bg-transparent dark:bg-white p-2 rounded-[35px] shadow-none dark:shadow-[0_0_50px_rgba(168,85,247,0.3)] mb-10 inline-block border border-black/10 dark:border-none">
+            {/* Logo-Switch für die Startseite – Kasten und Rand wurden entfernt */}
+            <div className="mb-10 inline-block">
                 {/* Zeige Weißes Logo im hellen Modus (dark:hidden) */}
                 <img src="/logo-white.jpg" alt="GIGILUKO Icon" className="w-24 h-24 rounded-[28px] object-cover dark:hidden" />
                 {/* Zeige Schwarzes Logo im dunklen Modus (hidden dark:block) */}

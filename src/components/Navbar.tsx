@@ -7,8 +7,8 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => (
   <nav className="fixed top-0 left-0 w-full z-[100] px-6 py-8 md:px-12 pointer-events-none">
     <div className="max-w-7xl mx-auto flex justify-between items-center">
       <Link to="/" className="group pointer-events-auto">
-        <div className="p-1 rounded-xl transition-all duration-500 bg-transparent dark:bg-white/5 border border-black/5 dark:border-white/10">
-          {/* Dunkler Modus = Schwarzes Logo, Heller Modus = Weißes Logo */}
+        {/* Wir haben bg, padding und border entfernt – das Logo schwebt */}
+        <div className="transition-all duration-500 hover:scale-105">
           <img 
             src={isDark ? "/logo-black.jpg" : "/logo-white.jpg"} 
             alt="GIGILUKO" 
