@@ -41,7 +41,8 @@ const Venues: React.FC = () => {
                             <button className="bg-gray-100 dark:bg-white/10 text-black dark:text-white border border-black/10 dark:border-white/10 px-10 py-4 rounded-2xl font-black uppercase tracking-widest text-sm">{t.btn2}</button>
                         </div>
                     </div>
-                    <div className="w-full md:w-[450px] h-[350px] bg-gray-50 dark:bg-black/20 border border-black/5 dark:border-white/10 rounded-3xl flex items-center justify-center text-gray-400 shadow-inner">Dashboard</div>
+                    {/* HIER IST DAS NEUE BILD */}
+                    <img src="/dashboard-screenshot.jpg" alt="GIGILUKO Dashboard" className="w-full md:w-[450px] h-auto object-cover rounded-[30px] shadow-2xl border border-black/10 dark:border-white/10 flex-shrink-0" />
                 </div>
             </div>
             <div className="grid md:grid-cols-2 gap-12">
