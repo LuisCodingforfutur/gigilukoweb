@@ -37,16 +37,32 @@ const Home: React.FC = () => {
                 <img src="/logo-black.jpg" alt="Logo" className="w-24 h-24 rounded-[28px] object-cover hidden dark:block" />
             </div>
 
-            <h1 className="text-6xl md:text-[140px] font-black mb-8 leading-[0.85] text-purple-600 uppercase italic">GIGI<br/>LUKO</h1>
-            <p className="text-lg md:text-2xl text-gray-500 dark:text-gray-400 max-w-2xl font-light mb-24">{t.slogan}</p>
+            {/* Hier ist die Änderung: GIGILUKO in einer Zeile ohne <br/> */}
+            <h1 className="text-5xl md:text-9xl lg:text-[140px] font-black mb-8 leading-tight text-purple-600 uppercase italic tracking-tighter">
+                GIGILUKO
+            </h1>
+            
+            <p className="text-lg md:text-2xl text-gray-500 dark:text-gray-400 max-w-2xl font-light mb-24">
+                {t.slogan}
+            </p>
 
-            <div className="w-full max-w-7xl mx-auto my-16"><Users /></div>
-            <div className="w-full max-w-7xl mx-auto my-32"><Venues /></div>
+            <div className="w-full max-w-7xl mx-auto my-16">
+                <Users />
+            </div>
+            <div className="w-full max-w-7xl mx-auto my-32">
+                <Venues />
+            </div>
 
             <div className="w-full flex justify-center my-16">
                 <form onSubmit={handleWaitlist} className="max-w-md w-full bg-gray-50 dark:bg-white/5 p-12 rounded-[50px] border border-black/5 dark:border-white/10 backdrop-blur-sm shadow-xl">
                     <h2 className="text-2xl font-bold mb-6 text-black dark:text-white">{t.join}</h2>
-                    <input type="email" placeholder="E-Mail" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 px-8 py-4 rounded-2xl mb-4 text-center outline-none focus:border-purple-500 transition-all text-black dark:text-white" />
+                    <input 
+                        type="email" 
+                        placeholder="E-Mail" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        className="w-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 px-8 py-4 rounded-2xl mb-4 text-center outline-none focus:border-purple-500 transition-all text-black dark:text-white" 
+                    />
                     <button type="submit" className="w-full bg-purple-600 text-white dark:bg-white dark:text-black py-4 rounded-2xl font-black uppercase tracking-widest hover:opacity-90 transition-all">
                         {status === "loading" ? "..." : status === "success" ? t.success : t.btn}
                     </button>
