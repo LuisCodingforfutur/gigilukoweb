@@ -7,7 +7,6 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => (
   <nav className="fixed top-0 left-0 w-full z-[100] px-6 py-8 md:px-12 pointer-events-none">
     <div className="max-w-7xl mx-auto flex justify-between items-center">
       <Link to="/" className="group pointer-events-auto">
-        {/* Wir haben bg, padding und border entfernt – das Logo schwebt */}
         <div className="transition-all duration-500 hover:scale-105">
           <img 
             src={isDark ? "/logo-black.jpg" : "/logo-white.jpg"} 
@@ -24,10 +23,6 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => (
         >
           {isDark ? "☀️" : "🌙"}
         </button>
-        <div className="flex gap-6 text-[10px] font-black uppercase tracking-[0.2em] bg-white/80 dark:bg-[#05000a]/70 backdrop-blur-md px-6 py-3 rounded-full border border-black/5 dark:border-white/10 text-gray-400">
-          <Link to="/users" className="hover:text-purple-600 dark:hover:text-white transition-colors">Users</Link>
-          <Link to="/venues" className="hover:text-purple-600 dark:hover:text-white transition-colors">Venues</Link>
-        </div>
       </div>
     </div>
   </nav>
