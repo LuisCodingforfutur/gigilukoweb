@@ -45,8 +45,8 @@ const Users: React.FC = () => {
                             <button className="bg-white/10 text-black dark:text-white border border-black/10 dark:border-white/10 px-10 py-4 rounded-2xl font-black uppercase tracking-widest text-sm">{t.btn2}</button>
                         </div>
                     </div>
-                    {/* HIER IST DAS NEUE BILD */}
-                    <img src="/app-screenshot.jpg" alt="GIGILUKO App Screenshot" className="w-full md:w-[300px] h-auto object-cover rounded-[35px] shadow-2xl border border-black/10 dark:border-white/10 flex-shrink-0" />
+                    {/* Angepasster Bildname: User.jpeg */}
+                    <img src="/User.jpeg" alt="GIGILUKO App Screenshot" className="w-full md:w-[300px] h-auto object-cover rounded-[35px] shadow-2xl border border-black/10 dark:border-white/10 flex-shrink-0" />
                 </div>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
