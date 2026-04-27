@@ -1,35 +1,47 @@
 import React from "react";
 
-const Users: React.FC = () => (
-  <div className="relative min-h-screen bg-[#05000a] text-white pt-48 pb-32 px-6 overflow-hidden">
-    <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-purple-600/10 blur-[150px] rounded-full pointer-events-none -z-10" />
-    <div className="max-w-5xl mx-auto">
-      <h1 className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter mb-8 text-white">
-        Your Night. <br/><span className="text-purple-500">Optimized.</span>
-      </h1>
-      <p className="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mb-24 leading-relaxed">
-        Erlebe das erste Betriebssystem für die physische Welt. GIGILUKO eliminiert FOMO durch Echtzeit-Daten.
-      </p>
+const Users: React.FC = () => {
+    return (
+        <div className="space-y-24">
+            {/* HAUPTBLOCK: Reparierte Farben für Light & Dark Mode */}
+            <div className="bg-gray-50 dark:bg-black/50 backdrop-blur-sm border border-black/5 dark:border-white/10 p-12 md:p-20 rounded-[50px] text-left transition-colors duration-500">
+                <div className="flex flex-col md:flex-row gap-12 items-center">
+                    <div className="flex-grow">
+                        <h2 className="text-3xl md:text-5xl font-black mb-6 text-black dark:text-white uppercase italic">Digitalizing your Nightlife Experience.</h2>
+                        <p className="text-lg text-gray-700 dark:text-gray-400 font-light mb-12 max-w-2xl">GIGILUKO helps you discover the best venues, manage your entries, and connect with your friends – all in one powerful app.</p>
+                        
+                        <div className="flex flex-col sm:flex-row gap-6 mb-12">
+                            <button className="bg-purple-600 text-white dark:bg-white dark:text-black px-10 py-4 rounded-2xl font-black uppercase tracking-widest hover:opacity-90 transition-all text-sm">Download App</button>
+                            <button className="bg-white/10 text-black dark:text-white border border-black/10 dark:border-white/10 px-10 py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-black/5 dark:hover:bg-white/5 transition-all text-sm">Learn More</button>
+                        </div>
+                    </div>
+                    {/* Placeholder for App Screenshot */}
+                    <div className="w-full md:w-[300px] h-[600px] bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-3xl flex items-center justify-center text-gray-400 flex-shrink-0 shadow-inner">
+                        App Screenshot
+                    </div>
+                </div>
+            </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="bg-white/5 border border-white/10 p-12 rounded-[50px]">
-          <h3 className="text-2xl font-black uppercase italic mb-4">01. Live Check-In</h3>
-          <p className="text-gray-500 leading-relaxed">Sehen Sie in Echtzeit, wo wie viel los ist – von moderat bis very busy. Nie mehr vor verschlossenen Türen oder leeren Bars stehen.</p>
+            {/* Features Grid */}
+            <div className="grid md:grid-cols-3 gap-8 text-left">
+                <div className="bg-white dark:bg-white/5 p-8 rounded-3xl border border-black/5 dark:border-white/10 transition-colors duration-500">
+                    <div className="w-16 h-16 rounded-2xl bg-purple-600/10 dark:bg-purple-600/20 text-purple-600 flex items-center justify-center text-3xl mb-6">🔍</div>
+                    <h4 className="text-xl font-bold mb-3 text-black dark:text-white">Discover Venues</h4>
+                    <p className="text-gray-600 dark:text-gray-400 font-light text-sm">Find bars, clubs, and lounges near you. Check lineups, entry fees, and real-time updates.</p>
+                </div>
+                <div className="bg-white dark:bg-white/5 p-8 rounded-3xl border border-black/5 dark:border-white/10 transition-colors duration-500">
+                    <div className="w-16 h-16 rounded-2xl bg-purple-600/10 dark:bg-purple-600/20 text-purple-600 flex items-center justify-center text-3xl mb-6">🎟️</div>
+                    <h4 className="text-xl font-bold mb-3 text-black dark:text-white">Easy Entries</h4>
+                    <p className="text-gray-600 dark:text-gray-400 font-light text-sm">Skip the line with digital tickets and guestlist access. Your profile is your entry card.</p>
+                </div>
+                <div className="bg-white dark:bg-white/5 p-8 rounded-3xl border border-black/5 dark:border-white/10 transition-colors duration-500">
+                    <div className="w-16 h-16 rounded-2xl bg-purple-600/10 dark:bg-purple-600/20 text-purple-600 flex items-center justify-center text-3xl mb-6">🥂</div>
+                    <h4 className="text-xl font-bold mb-3 text-black dark:text-white">Connect & Share</h4>
+                    <p className="text-gray-600 dark:text-gray-400 font-light text-sm">See where your friends are going, share plans, and make every night an event.</p>
+                </div>
+            </div>
         </div>
-        <div className="bg-white/5 border border-white/10 p-12 rounded-[50px]">
-          <h3 className="text-2xl font-black uppercase italic mb-4">02. Vibe Check</h3>
-          <p className="text-gray-500 leading-relaxed">Authentische Stimmungsbilder von anderen Gästen – live und unmittelbar. Wissen, ob der Vibe "chill" oder "party" ist, bevor man ankommt.</p>
-        </div>
-        <div className="bg-white/5 border border-white/10 p-12 rounded-[50px]">
-          <h3 className="text-2xl font-black uppercase italic mb-4">03. Interactive Map</h3>
-          <p className="text-gray-500 leading-relaxed">Entdecken Sie Hotspots in Stuttgart oder Ihrer Zielstadt. Integriertes Ticketing und Reservierungen mit nur einem Tap.</p>
-        </div>
-        <div className="bg-white/5 border border-white/10 p-12 rounded-[50px]">
-          <h3 className="text-2xl font-black uppercase italic mb-4">04. One Bill</h3>
-          <p className="text-gray-500 leading-relaxed">Eine einzige, kategorisierte Monatsrechnung für alle Erlebnisse. Von Mobilität bis Gastronomie – alles DATEV-ready.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-);
+    );
+};
+
 export default Users;
