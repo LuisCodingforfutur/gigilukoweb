@@ -31,28 +31,31 @@ const Home: React.FC = () => {
         e.preventDefault();
         if (!email.includes("@")) return;
         setStatus("loading");
+        
         try {
-            // 1. Die Bestätigungs-E-Mail senden
-            await fetch('/api/send', { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify({ email }) 
-            });
-            
-            // 2. In Firebase speichern
+            // 1. WICHTIGSTER SCHRITT: Firebase Speicherung
             await addDoc(collection(db, "waitlist"), { 
                 email, 
                 timestamp: serverTimestamp() 
             });
             
+            // 2. E-MAIL VERSAND (Abgesichert: Wenn das fehlschlägt, bleibt der Button trotzdem grün!)
+            try {
+                await fetch('/api/send', { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify({ email }) 
+                });
+            } catch (emailError) {
+                console.warn("E-Mail API Fehler ignoriert:", emailError);
+            }
+            
             setStatus("success");
             setEmail("");
-            
-            // Nach 3 Sekunden den Button wieder auf Normal stellen
             setTimeout(() => setStatus("idle"), 3000);
             
         } catch (error) { 
-            console.error("Waitlist Error: ", error);
+            console.error("GIGILUKO Waitlist Error: ", error);
             setStatus("error"); 
             setTimeout(() => setStatus("idle"), 3000);
         }
