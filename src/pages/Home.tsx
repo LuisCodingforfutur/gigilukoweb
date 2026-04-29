@@ -11,8 +11,20 @@ const Home: React.FC = () => {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     
     const t = {
-        de: { slogan: "Digitalisierung für jeden Beat, jeden Einlass, jeden Vibe.", join: "Werde Teil der Bewegung", btn: "Jetzt beitreten", success: "Erfolgreich!" },
-        en: { slogan: "Digitalizing every beat, every entry, every vibe.", join: "Join the Movement", btn: "Join Now", success: "Success!" }
+        de: { 
+            slogan: "Digitalisierung für jeden Beat, jeden Einlass, jeden Vibe.", 
+            join: "Werde Teil der Bewegung", 
+            btn: "Jetzt beitreten", 
+            success: "Erfolgreich!",
+            error: "Fehler aufgetreten!" 
+        },
+        en: { 
+            slogan: "Digitalizing every beat, every entry, every vibe.", 
+            join: "Join the Movement", 
+            btn: "Join Now", 
+            success: "Success!",
+            error: "Error occurred!" 
+        }
     }[lang];
 
     const handleWaitlist = async (e: React.FormEvent) => {
@@ -20,10 +32,30 @@ const Home: React.FC = () => {
         if (!email.includes("@")) return;
         setStatus("loading");
         try {
-            await addDoc(collection(db, "waitlist"), { email, timestamp: serverTimestamp() });
+            // 1. Die Bestätigungs-E-Mail senden
+            await fetch('/api/send', { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json' }, 
+                body: JSON.stringify({ email }) 
+            });
+            
+            // 2. In Firebase speichern
+            await addDoc(collection(db, "waitlist"), { 
+                email, 
+                timestamp: serverTimestamp() 
+            });
+            
             setStatus("success");
             setEmail("");
-        } catch (error) { setStatus("error"); }
+            
+            // Nach 3 Sekunden den Button wieder auf Normal stellen
+            setTimeout(() => setStatus("idle"), 3000);
+            
+        } catch (error) { 
+            console.error("Waitlist Error: ", error);
+            setStatus("error"); 
+            setTimeout(() => setStatus("idle"), 3000);
+        }
     };
 
     return (
@@ -37,7 +69,6 @@ const Home: React.FC = () => {
                 <img src="/logo-black.jpg" alt="Logo" className="w-24 h-24 rounded-[28px] object-cover hidden dark:block" />
             </div>
 
-            {/* Hier ist die Änderung: GIGILUKO in einer Zeile ohne <br/> */}
             <h1 className="text-5xl md:text-9xl lg:text-[140px] font-black mb-8 leading-tight text-purple-600 uppercase italic tracking-tighter">
                 GIGILUKO
             </h1>
@@ -62,9 +93,20 @@ const Home: React.FC = () => {
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)} 
                         className="w-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 px-8 py-4 rounded-2xl mb-4 text-center outline-none focus:border-purple-500 transition-all text-black dark:text-white" 
+                        required
                     />
-                    <button type="submit" className="w-full bg-purple-600 text-white dark:bg-white dark:text-black py-4 rounded-2xl font-black uppercase tracking-widest hover:opacity-90 transition-all">
-                        {status === "loading" ? "..." : status === "success" ? t.success : t.btn}
+                    <button 
+                        type="submit" 
+                        disabled={status === "loading" || status === "success"}
+                        className={`w-full text-white py-4 rounded-2xl font-black uppercase tracking-widest transition-all
+                            ${status === "success" ? "bg-green-500" : 
+                              status === "error" ? "bg-red-500" : 
+                              "bg-purple-600 dark:bg-white dark:text-black hover:opacity-90"}
+                        `}
+                    >
+                        {status === "loading" ? "..." : 
+                         status === "success" ? t.success : 
+                         status === "error" ? t.error : t.btn}
                     </button>
                 </form>
             </div>
