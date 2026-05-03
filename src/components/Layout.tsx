@@ -1,6 +1,7 @@
 import React, { useState, createContext, useContext } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import CookieBanner from "./CookieBanner";
 
 // Sprach-Kontext erstellen
 type Language = "en" | "de";
@@ -18,8 +19,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className={isDark ? "dark" : "light"}>
         <div className="min-h-screen flex flex-col bg-white dark:bg-[#05000a] text-black dark:text-white transition-colors duration-500 overflow-x-hidden">
           <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-          <main className="flex-grow w-full flex flex-col">{children}</main>
+          
+          <main className="flex-grow w-full flex flex-col">
+            {children}
+          </main>
+          
           <Footer />
+          
+          {/* Das neue Cookie Banner */}
+          <CookieBanner />
         </div>
       </div>
     </LanguageContext.Provider>
