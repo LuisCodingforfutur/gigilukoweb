@@ -16,7 +16,7 @@ export default async function handler(req: any, res: any) {
 
     try {
         const data = await resend.emails.send({
-            from: "GIGILUKO <hello@gigiluko.com>", // Stelle sicher, dass hello@gigiluko.com bei Resend verifiziert ist
+            from: "GIGILUKO <hello@gigiluko.com>",
             to: email,
             subject: "Du bist auf der Liste! 🚀 GIGILUKO Waitlist",
             html: `
@@ -24,7 +24,7 @@ export default async function handler(req: any, res: any) {
                     <p style="font-size: 18px; font-weight: bold; text-align: center;">Willkommen auf der Waitlist! 🚀</p>
                     
                     <p style="color: #e5e7eb; font-size: 15px; line-height: 1.6; margin-top: 24px;">Hey!</p>
-                    <p style="color: #e5e7eb; font-size: 15px; line-height: 1.6;">Du bist offiziell auf der GIGILUKO Waitlist. Du gehörst zu den Ersten, die erfahren, wenn wir das Nachtleben in Stuttgart revolutionieren.</p>
+                    <p style="color: #e5e7eb; font-size: 15px; line-height: 1.6;">Du bist offiziell auf der GIGILUKO Waitlist. Du gehörst zu den Ersten, die erfahren, wenn wir das Nachtleben revolutionieren.</p>
                     <p style="color: #e5e7eb; font-size: 15px; line-height: 1.6;">Wir arbeiten im Hintergrund auf Hochtouren an der App. Sobald es losgeht und du dir dein Profil sichern kannst, bekommst du von uns als Erstes Bescheid.</p>
 
                     <p style="text-align:center; margin:40px 0;">
@@ -33,7 +33,7 @@ export default async function handler(req: any, res: any) {
                       </span>
                     </p>
 
-                    <p style="color: #e5e7eb; font-size: 15px; margin-top: 30px;">Bis bald in Stuttgart 🌃<br>Dein GIGILUKO Team</p>
+                    <p style="color: #e5e7eb; font-size: 15px; margin-top: 30px;">Bis bald beim Feiern 🥂<br>Dein GIGILUKO Team</p>
 
                     <hr style="border:none; border-top:1px solid #333; margin:32px 0 16px;">
                     <p style="color:#9ca3af; font-size:11px; text-align:center;">
