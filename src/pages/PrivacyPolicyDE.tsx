@@ -3,7 +3,7 @@ import LegalPage from "../components/LegalPage";
 
 const PrivacyPolicyDE: React.FC = () => {
     return (
-        <LegalPage title="Datenschutzerklärung" lastUpdated="Mai 2026">
+        <LegalPage title="Datenschutzerklärung" lastUpdated="6. Mai 2026">
             <section>
                 <h2>1. Verantwortlicher</h2>
                 <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
@@ -30,15 +30,39 @@ const PrivacyPolicyDE: React.FC = () => {
 
                 <h3>3.4 Registrierung und App-Nutzung</h3>
                 <p>Bei der Erstellung eines Accounts erfassen wir zwingend notwendige Daten (E-Mail, verschlüsseltes Passwort, Nutzername) zur Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO). Optionale Profildaten verarbeiten wir auf Basis Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). App-Funktionen wie Freundeslisten und Check-ins dienen der Bereitstellung der Kernfunktionen unserer Plattform.</p>
+
+                <h3>3.5 Push-Benachrichtigungen (Firebase Cloud Messaging)</h3>
+                <p>Mit Ihrer ausdrücklichen Einwilligung senden wir Ihnen Push-Benachrichtigungen, um Sie über Chat-Nachrichten, Freundschaftsanfragen und Venue-Updates zu informieren. Hierzu verarbeiten wir ein gerätespezifisches Token (FCM-Token), das von Apple (APNs) oder Google (FCM) bereitgestellt wird. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit über die Benachrichtigungseinstellungen Ihres Geräts widerrufen können. Ohne dieses Token können wir keine Push-Benachrichtigungen zustellen; die Kernfunktionalität der App bleibt davon unberührt.</p>
+
+                <h3>3.6 Standortdaten</h3>
+                <p>Die Discover-Funktion zeigt Venues in Ihrer Umgebung auf einer interaktiven Karte. Mit Ihrer ausdrücklichen Einwilligung greifen wir auf den GPS-Standort Ihres Geräts zu, während die App in Benutzung ist, um Ihre Position relativ zu Venues anzuzeigen. Ihre präzise Position wird ausschließlich lokal auf Ihrem Gerät verarbeitet und niemals an unsere Server übermittelt oder dort gespeichert. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können den Standortzugriff jederzeit über die Datenschutzeinstellungen Ihres Geräts widerrufen. Ohne Standortzugriff funktioniert die Karte weiterhin, kann aber nicht auf Ihre Position zentriert werden.</p>
+
+                <h3>3.7 Kamera- und Fotozugriff</h3>
+                <p>Beim Hochladen eines Profilbilds oder beim Erstellen eines Posts fordern wir Zugriff auf die Kamera oder Fotomediathek Ihres Geräts an. Ausgewählte Bilder werden in Firebase Storage (Google Ireland Limited) hochgeladen und Ihrem Account zugeordnet. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) sowie Ihre Einwilligung für die Systemberechtigung (Art. 6 Abs. 1 lit. a DSGVO). Hochgeladene Bilder können Sie jederzeit über die App löschen.</p>
+
+                <h3>3.8 Bluetooth und Venue-Check-Ins</h3>
+                <p>Die Check-In-Funktion nutzt Bluetooth Low Energy (BLE) Beacons, die in Partner-Venues platziert sind, um Ihre physische Anwesenheit zu erkennen und automatische Check-Ins zu ermöglichen. Mit Ihrer ausdrücklichen Einwilligung verarbeiten wir Beacon-Näherungssignale, um Check-In-Ereignisse mit Ihrem Account zu verknüpfen. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) und die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO). Sie können den Bluetooth-Zugriff jederzeit über die Datenschutzeinstellungen Ihres Geräts widerrufen; manuelle Check-Ins bleiben auch ohne Bluetooth verfügbar.</p>
             </section>
             
             <section>
                 <h2>4. Drittanbieter und Tools</h2>
                 <h3>4.1 Firebase (Google Ireland Limited)</h3>
-                <p>Wir nutzen Firebase-Dienste (Google Ireland Limited) für die sichere Nutzer-Authentifizierung und unsere Datenbankinfrastruktur (Firestore). Die Verarbeitung erfolgt auf Basis eines Auftragsverarbeitungsvertrages (AVV) gemäß Art. 28 DSGVO.</p>
+                <p>Wir nutzen die folgenden Firebase-Dienste (Google Ireland Limited):</p>
+                <ul className="list-disc pl-6 space-y-1">
+                    <li>Firebase Authentication: sichere Anmeldung und Account-Verwaltung</li>
+                    <li>Cloud Firestore: Speicherung von Nutzerprofilen, Posts, Freundschaftsbeziehungen und Venue-Daten</li>
+                    <li>Firebase Realtime Database: Echtzeit-Chatnachrichten zwischen Nutzern und mit Venues</li>
+                    <li>Firebase Cloud Storage: Speicherung von Profilbildern und Post-Bildern</li>
+                    <li>Firebase Cloud Messaging (FCM): Zustellung von Push-Benachrichtigungen (siehe § 3.5)</li>
+                    <li>Cloud Functions for Firebase: serverseitige Verarbeitung von Freundschaftsanfragen-Annahmen, Push-Versand und transaktionaler E-Mails (z.B. Passwort-Reset)</li>
+                </ul>
+                <p>Die Verarbeitung erfolgt auf Basis eines Auftragsverarbeitungsvertrages (AVV) gemäß Art. 28 DSGVO. Einige Verarbeitungen können auf Google-Servern innerhalb der Europäischen Union stattfinden. Rechtsgrundlagen sind die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) und unser berechtigtes Interesse an der Bereitstellung funktionsfähiger, sicherer Dienste (Art. 6 Abs. 1 lit. f DSGVO).</p>
                 
                 <h3>4.2 Kartendienst CartoDB / Fastly</h3>
                 <p>Für die Darstellung unserer interaktiven Venue-Karten binden wir Kartenmaterial von CartoDB über das Content-Delivery-Network Fastly ein. Hierbei wird aus technischen Gründen Ihre IP-Adresse übertragen. Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+                <h3>4.3 Transaktionaler E-Mail-Versand (Resend)</h3>
+                <p>Für Passwort-Reset-E-Mails, E-Mail-Verifizierungen und andere transaktionale Kommunikation nutzen wir Resend (Resend, Inc., USA) als E-Mail-Zustelldienst. Ihre E-Mail-Adresse wird ausschließlich zum Zweck der E-Mail-Zustellung an Resend übermittelt. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO). Für Datenübertragungen in die USA stützen wir uns auf das EU-US Data Privacy Framework oder geeignete Standardvertragsklauseln gemäß Art. 46 DSGVO.</p>
             </section>
             
             <section>
