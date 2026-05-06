@@ -7,6 +7,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PrivacyPolicyDE from "./pages/PrivacyPolicyDE";
 import TermsOfService from "./pages/TermsOfService";
 import TermsOfServiceDE from "./pages/TermsOfServiceDE";
+import Support from "./pages/Support";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="/privacy-de" element={<PrivacyPolicyDE />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/terms-de" element={<TermsOfServiceDE />} />
+          <Route path="/support" element={<Support />} />
         </Routes>
       </Layout>
     </Router>
