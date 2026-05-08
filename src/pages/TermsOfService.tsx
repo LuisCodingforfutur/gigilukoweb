@@ -3,7 +3,7 @@ import LegalPage from "../components/LegalPage";
 
 const TermsOfService: React.FC = () => {
     return (
-        <LegalPage title="Terms of Service" lastUpdated="April 2026">
+        <LegalPage title="Terms of Service" lastUpdated="May 2026">
             <section>
                 <h2>1. Provider and Scope</h2>
                 <p>These Terms of Service govern the use of the mobile application <strong>GIGILUKO</strong> (the "App") provided by:</p>
@@ -48,6 +48,11 @@ const TermsOfService: React.FC = () => {
                     <li><strong>Use the App if you are under 16 years old</strong></li>
                 </ul>
                 <p>Violations may result in suspension or deletion of your account.</p>
+                <h3>4.1 Zero Tolerance for Objectionable Content</h3>
+                <div className="bg-white/10 p-6 rounded-2xl border border-white/20 my-6">
+                    <p className="font-bold uppercase mb-2">GIGILUKO MAINTAINS ZERO TOLERANCE FOR OBJECTIONABLE CONTENT, HARASSMENT, OR ABUSIVE BEHAVIOR.</p>
+                </div>
+                <p>Reports are reviewed within <strong>24 hours</strong> via the in-app report function. We may immediately remove content, warn or suspend users, terminate accounts, and report severe violations to law enforcement. See also our <a href="/community-guidelines">Community Guidelines</a>.</p>
             </section>
             <section>
                 <h2>5. User Content</h2>
@@ -95,7 +100,17 @@ const TermsOfService: React.FC = () => {
                 <p>If individual provisions of these Terms are invalid, this does not affect the validity of the remaining provisions.</p>
             </section>
             <section>
-                <h2>11. Contact</h2>
+                <h2>11. Apple App Store Terms</h2>
+                <p>If you accessed the App via the Apple App Store, you acknowledge:</p>
+                <ul>
+                    <li>These Terms are between you and GIGILUKO, not Apple. Apple is not responsible for the App or its content.</li>
+                    <li>Apple has no obligation to provide maintenance or support for the App.</li>
+                    <li>In case of failure to conform to applicable warranty, you may notify Apple, who will refund the purchase price (if any). Apple has no other warranty obligation.</li>
+                    <li>Apple is a third-party beneficiary of these Terms and has the right to enforce them against you.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>12. Contact</h2>
                 <p>For questions about these Terms, please contact:</p>
                 <p><strong>Email:</strong> <a href="mailto:support@gigiluko.com">support@gigiluko.com</a></p>
             </section>

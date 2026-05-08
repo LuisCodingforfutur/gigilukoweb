@@ -3,7 +3,7 @@ import LegalPage from "../components/LegalPage";
 
 const TermsOfServiceDE: React.FC = () => {
     return (
-        <LegalPage title="Nutzungsbedingungen" lastUpdated="April 2026">
+        <LegalPage title="Nutzungsbedingungen" lastUpdated="Mai 2026">
             <section>
                 <h2>1. Anbieter und Geltungsbereich</h2>
                 <p>Diese Nutzungsbedingungen regeln die Nutzung der mobilen Anwendung <strong>GIGILUKO</strong> (nachfolgend "App") der:</p>
@@ -48,6 +48,11 @@ const TermsOfServiceDE: React.FC = () => {
                     <li><strong>Nutzung der App durch Personen unter 16 Jahren</strong></li>
                 </ul>
                 <p>Bei Verstößen behalten wir uns vor, Ihr Konto zu sperren oder zu löschen.</p>
+                <h3>4.1 Zero Tolerance gegenüber unangemessenen Inhalten</h3>
+                <div className="bg-white/10 p-6 rounded-2xl border border-white/20 my-6">
+                    <p className="font-bold uppercase mb-2">GIGILUKO DULDET KEINE UNANGEMESSENEN INHALTE, BELÄSTIGUNG ODER MISSBRÄUCHLICHES VERHALTEN.</p>
+                </div>
+                <p>Meldungen werden innerhalb von <strong>24 Stunden</strong> über die In-App-Meldefunktion geprüft. Wir können Inhalte umgehend entfernen, Nutzer verwarnen oder sperren, Accounts schließen und schwere Verstöße an Strafverfolgungsbehörden melden. Siehe auch unsere <a href="/community-guidelines-de">Community Guidelines</a>.</p>
             </section>
             <section>
                 <h2>5. Nutzerinhalte</h2>
@@ -95,7 +100,17 @@ const TermsOfServiceDE: React.FC = () => {
                 <p>Sollten einzelne Bestimmungen dieser Nutzungsbedingungen unwirksam sein, berührt dies nicht die Wirksamkeit der übrigen Bestimmungen.</p>
             </section>
             <section>
-                <h2>11. Kontakt</h2>
+                <h2>11. Apple App Store Bedingungen</h2>
+                <p>Bei Bezug der App über den Apple App Store erkennen Sie an:</p>
+                <ul>
+                    <li>Diese Bedingungen bestehen zwischen Ihnen und GIGILUKO, nicht Apple. Apple ist nicht für die App oder deren Inhalte verantwortlich.</li>
+                    <li>Apple ist nicht zur Bereitstellung von Wartung oder Support für die App verpflichtet.</li>
+                    <li>Bei Nicht-Erfüllung anwendbarer Gewährleistung können Sie Apple benachrichtigen, das den Kaufpreis (falls vorhanden) erstattet. Apple hat keine weiteren Gewährleistungsverpflichtungen.</li>
+                    <li>Apple ist Drittbegünstigter dieser Bedingungen und kann diese gegen Sie durchsetzen.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>12. Kontakt</h2>
                 <p>Bei Fragen zu diesen Nutzungsbedingungen wenden Sie sich bitte an:</p>
                 <p><strong>E-Mail:</strong> <a href="mailto:support@gigiluko.com">support@gigiluko.com</a></p>
             </section>

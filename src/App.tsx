@@ -8,6 +8,8 @@ import PrivacyPolicyDE from "./pages/PrivacyPolicyDE";
 import TermsOfService from "./pages/TermsOfService";
 import TermsOfServiceDE from "./pages/TermsOfServiceDE";
 import Support from "./pages/Support";
+import CommunityGuidelines from "./pages/CommunityGuidelines";
+import CommunityGuidelinesDE from "./pages/CommunityGuidelinesDE";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +24,8 @@ const App: React.FC = () => {
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/terms-de" element={<TermsOfServiceDE />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/community-guidelines" element={<CommunityGuidelines />} />
+          <Route path="/community-guidelines-de" element={<CommunityGuidelinesDE />} />
         </Routes>
       </Layout>
     </Router>
