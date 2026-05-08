@@ -60,7 +60,7 @@ const Support: React.FC = () => {
             <section>
                 <h2>Other Resources</h2>
                 <p>
-                    <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> · <a href="/impressum">Imprint</a>
+                    <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> · <a href="/community-guidelines">Community Guidelines</a> · <a href="/impressum">Imprint</a>
                 </p>
             </section>
         </LegalPage>

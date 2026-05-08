@@ -30,6 +30,8 @@ const Footer: React.FC = () => {
                             <li><Link to="/privacy-de" className="hover:text-purple-400 transition">Datenschutz (DE)</Link></li>
                             <li><Link to="/terms" className="hover:text-purple-400 transition">Terms of Service</Link></li>
                             <li><Link to="/terms-de" className="hover:text-purple-400 transition">Nutzungsbedingungen (DE)</Link></li>
+                            <li><Link to="/community-guidelines" className="hover:text-purple-400 transition">Community Guidelines</Link></li>
+                            <li><Link to="/community-guidelines-de" className="hover:text-purple-400 transition">Community Guidelines (DE)</Link></li>
                             <li><Link to="/impressum" className="hover:text-purple-400 transition">Impressum</Link></li>
                         </ul>
                     </div>
