@@ -6,7 +6,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const content = {
   de: {
-    badge: "GIGILUKO V3 IS COMING",
+    badge: "GIGILUKO V1 IS COMING",
     title1: "Das Betriebssystem",
     title2: "für das Nachtleben.",
     subtitle: "Verwalten Sie Ihre Sichtbarkeit, maximieren Sie Ihren Umsatz und erreichen Sie Ihre Gäste in Echtzeit. Alles an einem Ort.",
@@ -16,7 +16,7 @@ const content = {
     error: "Fehler aufgetreten!"
   },
   en: {
-    badge: "GIGILUKO V3 IS COMING",
+    badge: "GIGILUKO V1 IS COMING",
     title1: "The Operating System",
     title2: "for Nightlife.",
     subtitle: "Manage your visibility, maximize your revenue, and reach your guests in real-time. All in one place.",
@@ -95,7 +95,8 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.1] mb-8 text-black dark:text-white transition-colors duration-500">
+          {/* Angepasste Headline: Etwas kleiner (text-7xl) und weniger fett (font-extrabold) */}
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-8 text-black dark:text-white transition-colors duration-500">
             {t.title1} <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#EC4899]">
               {t.title2}
