@@ -5,11 +5,11 @@ const Home = () => {
   return (
     <main className="bg-white dark:bg-[#05000a] min-h-screen transition-colors duration-500">
       
-      {/* Der neue KI-Startup Hero-Bereich mit der Waitlist */}
-      <HeroSection />
-      
-      {/* Das neue V3 Herzstück (4-Bilder) */}
+      {/* 1. Das V3 Herzstück (4-Bilder) kommt jetzt zuerst */}
       <StickyScrollShowcase />
+      
+      {/* 2. Der Waitlist-Bereich (unsere HeroSection) wandert ans Ende vor den Footer */}
+      <HeroSection />
       
     </main>
   );
