@@ -1,7 +1,8 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieBanner from "./CookieBanner";
+import Lenis from "lenis";
 
 // Sprach-Kontext erstellen
 type Language = "en" | "de";
@@ -13,6 +14,31 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [lang, setLang] = useState<Language>("de");
 
   const toggleTheme = () => setIsDark(!isDark);
+
+  // === HIGH-END MOTION: Lenis Smooth Scroll Setup ===
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Apple-like smooth curve
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+  // ===================================================
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>
@@ -33,4 +59,5 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     </LanguageContext.Provider>
   );
 };
+
 export default Layout;
