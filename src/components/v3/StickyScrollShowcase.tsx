@@ -7,8 +7,8 @@ import { motion, Variants } from 'framer-motion';
 
 const content = {
   de: {
-    s1_t1: "Die Stadt in",
-    s1_t2: "Echtzeit.",
+    s1_t1: "Die Stadt",
+    s1_t2: "Live.",
     s1_d: "Kein Raten mehr. Sehen Sie sofort auf dem Radar, wo das Leben gerade pulsiert, und vernetzen Sie sich nahtlos beim Feiern.",
     s2_t1: "Ihr Kompass",
     s2_t2: "für die Nacht.",
@@ -21,8 +21,8 @@ const content = {
     s4_d: "Das Cockpit für Ihren Gastronomiebetrieb. Behalten Sie die Auslastung im Blick und verwalten Sie Ihre Sichtbarkeit ganz einfach auf einem Bildschirm."
   },
   en: {
-    s1_t1: "The City in",
-    s1_t2: "Real-Time.",
+    s1_t1: "The City",
+    s1_t2: "Live.",
     s1_d: "No more guessing. Instantly see on the radar where life is pulsating, and seamlessly connect while partying.",
     s2_t1: "Your Compass",
     s2_t2: "for the Night.",
