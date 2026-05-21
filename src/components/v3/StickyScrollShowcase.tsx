@@ -3,6 +3,7 @@ import screen2 from '../../assets/v3/mockups/screen2.png';
 import screen3 from '../../assets/v3/mockups/screen3.png'; 
 import screen4 from '../../assets/v3/mockups/screen4.png';
 import { useLanguage } from '../Layout';
+import { motion, Variants } from 'framer-motion';
 
 const content = {
   de: {
@@ -39,41 +40,68 @@ const StickyScrollShowcase = () => {
   const { lang } = useLanguage();
   const t = content[lang];
 
+  // TypeScript Typ "Variants" hinzugefügt, damit die Kurve akzeptiert wird
+  const fadeUpVariant: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+  };
+  
+  const fadeScaleVariant: Variants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
+  };
+
   return (
-    <section className="bg-white dark:bg-[#05000a] text-black dark:text-white py-32 overflow-hidden transition-colors duration-500">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="relative bg-white dark:bg-[#05000a] text-black dark:text-white py-32 overflow-hidden transition-colors duration-500">
+      
+      {/* === PREMIUM GLOW EFFEKTE === */}
+      <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-purple-400/20 dark:bg-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-[40%] right-[-10%] w-[600px] h-[600px] bg-pink-400/20 dark:bg-pink-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         
-        {/* =========================================
-            BILD 1: Radar (Bild Links, Text Rechts)
-        ========================================= */}
+        {/* === BILD 1: Radar === */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24 mb-40">
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden transition-colors duration-500">
+          <motion.div 
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2 flex justify-center md:justify-end"
+          >
+            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(168,85,247,0.2)] overflow-hidden transition-colors duration-500">
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-800 dark:bg-[#05000a] rounded-full z-20 transition-colors duration-500"></div>
               <img src={screen1} alt="Radar Map" className="absolute top-0 left-0 w-full h-full object-cover" />
             </div>
-          </div>
-          <div className="w-full md:w-1/2">
+          </motion.div>
+          
+          <motion.div 
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2"
+          >
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
               {t.s1_t1} <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#EC4899]">{t.s1_t2}</span>
             </h2>
             <p className="text-gray-600 dark:text-[#9ca3af] text-lg font-light leading-relaxed max-w-md transition-colors duration-500">
               {t.s1_d}
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        {/* =========================================
-            BILD 2: Club (Text Links, Bild Rechts)
-        ========================================= */}
+        {/* === BILD 2: Club === */}
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-24 mb-40">
-          <div className="w-full md:w-1/2 flex justify-center md:justify-start">
-            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_50px_rgba(236,72,153,0.15)] overflow-hidden transition-colors duration-500">
+          <motion.div 
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2 flex justify-center md:justify-start"
+          >
+            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(236,72,153,0.2)] overflow-hidden transition-colors duration-500">
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-800 dark:bg-[#05000a] rounded-full z-20 transition-colors duration-500"></div>
               <img src={screen2} alt="Location Details" className="absolute top-0 left-0 w-full h-full object-cover" />
             </div>
-          </div>
-          <div className="w-full md:w-1/2 flex md:justify-end text-left md:text-right">
+          </motion.div>
+          
+          <motion.div 
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2 flex md:justify-end text-left md:text-right"
+          >
             <div className="max-w-md">
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
                 {t.s2_t1} <br/>{t.s2_t2}
@@ -82,40 +110,50 @@ const StickyScrollShowcase = () => {
                 {t.s2_d}
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* =========================================
-            BILD 3: Revenue (Bild Links, Text Rechts)
-        ========================================= */}
+        {/* === BILD 3: Revenue === */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24 mb-40">
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_50px_rgba(168,85,247,0.15)] overflow-hidden transition-colors duration-500">
+          <motion.div 
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2 flex justify-center md:justify-end"
+          >
+            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(168,85,247,0.2)] overflow-hidden transition-colors duration-500">
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-800 dark:bg-[#05000a] rounded-full z-20 transition-colors duration-500"></div>
               <img src={screen4} alt="Revenue View" className="absolute top-0 left-0 w-full h-full object-cover" />
             </div>
-          </div>
-          <div className="w-full md:w-1/2">
+          </motion.div>
+          
+          <motion.div 
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2"
+          >
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
               {t.s3_t1} <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#EC4899]">{t.s3_t2}</span>
             </h2>
             <p className="text-gray-600 dark:text-[#9ca3af] text-lg font-light leading-relaxed max-w-md transition-colors duration-500">
               {t.s3_d}
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        {/* =========================================
-            BILD 4: Dashboard (Text Links, Bild Rechts)
-        ========================================= */}
+        {/* === BILD 4: Dashboard === */}
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-24 mb-10">
-          <div className="w-full md:w-1/2 flex justify-center md:justify-start">
-            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_50px_rgba(236,72,153,0.15)] overflow-hidden transition-colors duration-500">
+          <motion.div 
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2 flex justify-center md:justify-start"
+          >
+            <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(236,72,153,0.2)] overflow-hidden transition-colors duration-500">
               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-800 dark:bg-[#05000a] rounded-full z-20 transition-colors duration-500"></div>
               <img src={screen3} alt="Business Dashboard" className="absolute top-0 left-0 w-full h-full object-cover" />
             </div>
-          </div>
-          <div className="w-full md:w-1/2 flex md:justify-end text-left md:text-right">
+          </motion.div>
+          
+          <motion.div 
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            className="w-full md:w-1/2 flex md:justify-end text-left md:text-right"
+          >
             <div className="max-w-md">
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
                 {t.s4_t1} <br/>{t.s4_t2}
@@ -124,7 +162,7 @@ const StickyScrollShowcase = () => {
                 {t.s4_d}
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
       </div>
