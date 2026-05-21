@@ -8,7 +8,7 @@ import { motion, Variants } from 'framer-motion';
 const content = {
   de: {
     s1_t1: "Die Stadt",
-    s1_t2: "Life.",
+    s1_t2: "Live.",
     s1_d: "Kein Raten mehr. Sehen Sie sofort auf dem Radar, wo das Leben gerade pulsiert, und vernetzen Sie sich nahtlos beim Feiern.",
     s2_t1: "Ihr Kompass",
     s2_t2: "für die Nacht.",
@@ -22,7 +22,7 @@ const content = {
   },
   en: {
     s1_t1: "The City",
-    s1_t2: "Life.",
+    s1_t2: "Live.",
     s1_d: "No more guessing. Instantly see on the radar where life is pulsating, and seamlessly connect while partying.",
     s2_t1: "Your Compass",
     s2_t2: "for the Night.",
@@ -77,7 +77,6 @@ const StickyScrollShowcase = () => {
             className="w-full md:w-1/2"
           >
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
-              {/* Hier liegt der leuchtende Gradient auf s1_t2 ("Life.") */}
               {t.s1_t1} <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#EC4899]">{t.s1_t2}</span>
             </h2>
             <p className="text-gray-600 dark:text-[#9ca3af] text-lg font-light leading-relaxed max-w-md transition-colors duration-500">
