@@ -40,7 +40,6 @@ const StickyScrollShowcase = () => {
   const { lang } = useLanguage();
   const t = content[lang];
 
-  // TypeScript Typ "Variants" hinzugefügt, damit die Kurve akzeptiert wird
   const fadeUpVariant: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
@@ -54,17 +53,17 @@ const StickyScrollShowcase = () => {
   return (
     <section className="relative bg-white dark:bg-[#05000a] text-black dark:text-white py-32 overflow-hidden transition-colors duration-500">
       
-      {/* === PREMIUM GLOW EFFEKTE === */}
-      <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-purple-400/20 dark:bg-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute top-[40%] right-[-10%] w-[600px] h-[600px] bg-pink-400/20 dark:bg-pink-600/20 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+      {/* === PREMIUM GLOW EFFEKTE (hidden md:block für mobile Performance) === */}
+      <div className="hidden md:block absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-purple-400/20 dark:bg-purple-600/20 rounded-full blur-[120px] pointer-events-none transform-gpu"></div>
+      <div className="hidden md:block absolute top-[40%] right-[-10%] w-[600px] h-[600px] bg-pink-400/20 dark:bg-pink-600/20 rounded-full blur-[120px] pointer-events-none transform-gpu"></div>
+      <div className="hidden md:block absolute bottom-[10%] left-[20%] w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-[100px] pointer-events-none transform-gpu"></div>
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         
-        {/* === BILD 1: Radar === */}
+        {/* BILD 1 */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24 mb-40">
           <motion.div 
-            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2 flex justify-center md:justify-end"
           >
             <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(168,85,247,0.2)] overflow-hidden transition-colors duration-500">
@@ -74,7 +73,7 @@ const StickyScrollShowcase = () => {
           </motion.div>
           
           <motion.div 
-            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2"
           >
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
@@ -86,10 +85,10 @@ const StickyScrollShowcase = () => {
           </motion.div>
         </div>
 
-        {/* === BILD 2: Club === */}
+        {/* BILD 2 */}
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-24 mb-40">
           <motion.div 
-            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2 flex justify-center md:justify-start"
           >
             <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(236,72,153,0.2)] overflow-hidden transition-colors duration-500">
@@ -99,7 +98,7 @@ const StickyScrollShowcase = () => {
           </motion.div>
           
           <motion.div 
-            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2 flex md:justify-end text-left md:text-right"
           >
             <div className="max-w-md">
@@ -113,10 +112,10 @@ const StickyScrollShowcase = () => {
           </motion.div>
         </div>
 
-        {/* === BILD 3: Revenue === */}
+        {/* BILD 3 */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24 mb-40">
           <motion.div 
-            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2 flex justify-center md:justify-end"
           >
             <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(168,85,247,0.2)] overflow-hidden transition-colors duration-500">
@@ -126,7 +125,7 @@ const StickyScrollShowcase = () => {
           </motion.div>
           
           <motion.div 
-            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2"
           >
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
@@ -138,10 +137,10 @@ const StickyScrollShowcase = () => {
           </motion.div>
         </div>
 
-        {/* === BILD 4: Dashboard === */}
+        {/* BILD 4 */}
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-24 mb-10">
           <motion.div 
-            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeScaleVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2 flex justify-center md:justify-start"
           >
             <div className="relative w-[280px] h-[600px] bg-gray-100 dark:bg-[#111] border-[6px] border-gray-300 dark:border-[#222] rounded-[3rem] shadow-[0_0_80px_rgba(236,72,153,0.2)] overflow-hidden transition-colors duration-500">
@@ -151,7 +150,7 @@ const StickyScrollShowcase = () => {
           </motion.div>
           
           <motion.div 
-            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpVariant} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-20px" }}
             className="w-full md:w-1/2 flex md:justify-end text-left md:text-right"
           >
             <div className="max-w-md">
