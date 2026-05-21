@@ -13,7 +13,8 @@ const content = {
     cta: "Auf die Warteliste",
     placeholder: "Deine E-Mail Adresse...",
     success: "Erfolgreich eingetragen!",
-    error: "Fehler aufgetreten!"
+    error: "Fehler aufgetreten!",
+    instagram: "Folge unserer Reise auf Instagram"
   },
   en: {
     badge: "GIGILUKO V1 IS COMING",
@@ -23,7 +24,8 @@ const content = {
     cta: "Join the Waitlist",
     placeholder: "Your email address...",
     success: "Successfully joined!",
-    error: "Error occurred!"
+    error: "Error occurred!",
+    instagram: "Follow our journey on Instagram"
   }
 };
 
@@ -41,13 +43,11 @@ const HeroSection = () => {
     setStatus("loading");
     
     try {
-      // 1. Firebase Speicherung
       await addDoc(collection(db, "waitlist"), { 
         email, 
         timestamp: serverTimestamp() 
       });
       
-      // 2. E-Mail API Aufruf
       try {
         await fetch('/api/send', { 
           method: 'POST', 
@@ -80,9 +80,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-32">
       
-      {/* PREMIUM GLOW (Mobil deaktiviert gegen iOS Crash) */}
+      {/* PREMIUM GLOW */}
       <div className="hidden md:block absolute top-[20%] left-[50%] -translate-x-1/2 w-[800px] h-[600px] bg-purple-500/20 dark:bg-purple-600/20 rounded-[100%] blur-[120px] pointer-events-none transition-colors duration-700 transform-gpu"></div>
       <div className="hidden md:block absolute top-[30%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-pink-500/20 dark:bg-pink-600/10 rounded-[100%] blur-[100px] pointer-events-none transition-colors duration-700 transform-gpu"></div>
 
@@ -95,7 +95,6 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          {/* Angepasste Headline: Etwas kleiner (text-7xl) und weniger fett (font-extrabold) */}
           <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-8 text-black dark:text-white transition-colors duration-500">
             {t.title1} <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#EC4899]">
@@ -136,6 +135,31 @@ const HeroSection = () => {
                status === "error" ? t.error : t.cta}
             </button>
           </motion.form>
+
+          {/* === ELEGANTER INSTAGRAM LINK === */}
+          <motion.div variants={itemVariants} className="mt-12">
+            <a 
+              href="https://www.instagram.com/gigilukoo/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-[#EC4899]/50 transition-all duration-300"
+            >
+              <svg 
+                className="w-5 h-5 text-gray-500 group-hover:text-[#EC4899] transition-colors duration-300" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              {t.instagram}
+            </a>
+          </motion.div>
 
         </motion.div>
       </div>
