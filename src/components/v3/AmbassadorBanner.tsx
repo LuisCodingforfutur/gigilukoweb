@@ -34,13 +34,13 @@ const AmbassadorBanner = () => {
 
   return (
     <>
-      {/* --- TOP BANNER --- */}
+      {/* --- FLOATING PILL BANNER --- */}
       <div 
         onClick={() => setIsOpen(true)}
-        className="fixed top-0 left-0 w-full z-[200] bg-gradient-to-r from-[#A855F7] to-[#EC4899] text-white py-2 px-4 text-center cursor-pointer hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-xs md:text-sm font-medium"
+        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[92%] md:w-auto z-[200] bg-gradient-to-r from-[#A855F7] to-[#EC4899] text-white py-2.5 px-6 rounded-full shadow-[0_8px_30px_rgba(168,85,247,0.3)] border border-white/20 cursor-pointer hover:scale-[1.02] transition-all flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-xs md:text-sm font-medium"
       >
         <span>{t.bannerText}</span>
-        <span className="font-bold underline decoration-white/50 underline-offset-2">{t.bannerCta} &rarr;</span>
+        <span className="font-bold bg-white/20 px-3 py-1 rounded-full whitespace-nowrap">{t.bannerCta} &rarr;</span>
       </div>
 
       {/* --- MODAL OVERLAY --- */}
@@ -61,7 +61,6 @@ const AmbassadorBanner = () => {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="relative w-full max-w-3xl bg-[#0a0014] border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-[0_0_100px_rgba(168,85,247,0.2)] overflow-hidden"
             >
-              {/* Close Button */}
               <button 
                 onClick={() => setIsOpen(false)}
                 className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
@@ -75,37 +74,19 @@ const AmbassadorBanner = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                
-                {/* University Card */}
                 <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:border-[#A855F7]/50 hover:bg-white/10 transition-all group flex flex-col h-full">
-                  <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
-                    🎓
-                  </div>
+                  <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🎓</div>
                   <h3 className="text-xl font-bold text-white mb-3">{t.uniTitle}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">{t.uniDesc}</p>
-                  <a 
-                    href="mailto:hello@gigiluko.com?subject=University Ambassador Application"
-                    className="w-full block text-center py-3 rounded-full bg-white/5 text-white font-semibold hover:bg-purple-500 hover:text-white transition-colors border border-white/10 hover:border-transparent"
-                  >
-                    {t.applyBtn}
-                  </a>
+                  <a href="mailto:ambassador@gigiluko.com?subject=University Ambassador Application" className="w-full block text-center py-3 rounded-full bg-white/5 text-white font-semibold hover:bg-purple-500 hover:text-white transition-colors border border-white/10 hover:border-transparent">{t.applyBtn}</a>
                 </div>
 
-                {/* City Card */}
                 <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:border-[#EC4899]/50 hover:bg-white/10 transition-all group flex flex-col h-full">
-                  <div className="w-14 h-14 bg-pink-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
-                    🏙️
-                  </div>
+                  <div className="w-14 h-14 bg-pink-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🏙️</div>
                   <h3 className="text-xl font-bold text-white mb-3">{t.cityTitle}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">{t.cityDesc}</p>
-                  <a 
-                    href="mailto:hello@gigiluko.com?subject=City Ambassador Application"
-                    className="w-full block text-center py-3 rounded-full bg-white/5 text-white font-semibold hover:bg-pink-500 hover:text-white transition-colors border border-white/10 hover:border-transparent"
-                  >
-                    {t.applyBtn}
-                  </a>
+                  <a href="mailto:ambassador@gigiluko.com?subject=City Ambassador Application" className="w-full block text-center py-3 rounded-full bg-white/5 text-white font-semibold hover:bg-pink-500 hover:text-white transition-colors border border-white/10 hover:border-transparent">{t.applyBtn}</a>
                 </div>
-
               </div>
             </motion.div>
           </div>
