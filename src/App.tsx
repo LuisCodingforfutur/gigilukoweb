@@ -10,6 +10,7 @@ import TermsOfServiceDE from "./pages/TermsOfServiceDE";
 import Support from "./pages/Support";
 import CommunityGuidelines from "./pages/CommunityGuidelines";
 import CommunityGuidelinesDE from "./pages/CommunityGuidelinesDE";
+import DigitalServicesAct from "./pages/DigitalServicesAct";
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           <Route path="/support" element={<Support />} />
           <Route path="/community-guidelines" element={<CommunityGuidelines />} />
           <Route path="/community-guidelines-de" element={<CommunityGuidelinesDE />} />
+          <Route path="/dsa" element={<DigitalServicesAct />} />
         </Routes>
       </Layout>
     </Router>
