@@ -1,7 +1,7 @@
-import screen1 from '../../assets/v3/mockups/screen1.png';
-import screen2 from '../../assets/v3/mockups/screen2.png';
-import screen3 from '../../assets/v3/mockups/screen3.png'; 
-import screen4 from '../../assets/v3/mockups/screen4.png';
+import screen1 from '../../assets/v3/mockups/screen1.webp';
+import screen2 from '../../assets/v3/mockups/screen2.webp';
+import screen3 from '../../assets/v3/mockups/screen3.webp'; 
+import screen4 from '../../assets/v3/mockups/screen4.webp';
 import { useLanguage } from '../Layout';
 import { motion, Variants } from 'framer-motion';
 
