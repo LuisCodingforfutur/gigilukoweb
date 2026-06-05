@@ -14,7 +14,10 @@ const content = {
     placeholder: "Deine E-Mail Adresse...",
     success: "Erfolgreich eingetragen!",
     error: "Fehler aufgetreten!",
-    instagram: "Folge unserer Reise auf Instagram"
+    instagram: "Folge unserer Reise auf Instagram",
+    consentText: "Ich willige ein, dass meine E-Mail-Adresse zur Aufnahme in die Waitlist gespeichert wird. Details in der ",
+    privacyLink: "Datenschutzerklärung",
+    consentSuffix: "."
   },
   en: {
     badge: "GIGILUKO V1 IS COMING",
@@ -25,7 +28,10 @@ const content = {
     placeholder: "Your email address...",
     success: "Successfully joined!",
     error: "Error occurred!",
-    instagram: "Follow our journey on Instagram"
+    instagram: "Follow our journey on Instagram",
+    consentText: "I consent to my email address being stored to join the waitlist. Details in the ",
+    privacyLink: "Privacy Policy",
+    consentSuffix: "."
   }
 };
 
@@ -36,10 +42,12 @@ const HeroSection = () => {
   // === WAITLIST LOGIK ===
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [consent, setConsent] = useState(false);
 
   const handleWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.includes("@")) return;
+    if (!consent) return;
     setStatus("loading");
     
     try {
@@ -110,30 +118,55 @@ const HeroSection = () => {
           <motion.form 
             variants={itemVariants} 
             onSubmit={handleWaitlist} 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mx-auto"
+            className="w-full max-w-lg mx-auto"
           >
-            <input 
-              type="email" 
-              placeholder={t.placeholder} 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required
-              className="w-full sm:w-auto flex-grow px-6 py-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-black dark:text-white outline-none focus:border-purple-500 transition-all placeholder-gray-500"
-            />
-            
-            <button 
-              type="submit" 
-              disabled={status === "loading" || status === "success"}
-              className={`w-full sm:w-auto px-8 py-4 rounded-full font-bold text-white transition-all duration-300 transform ${
-                status === "success" ? "bg-green-500 hover:scale-100" :
-                status === "error" ? "bg-red-500 hover:scale-100" :
-                "bg-gradient-to-r from-[#A855F7] to-[#EC4899] hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-105"
-              }`}
-            >
-              {status === "loading" ? "..." : 
-               status === "success" ? t.success : 
-               status === "error" ? t.error : t.cta}
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <input 
+                type="email" 
+                placeholder={t.placeholder} 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                required
+                className="w-full sm:w-auto flex-grow px-6 py-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-black dark:text-white outline-none focus:border-purple-500 transition-all placeholder-gray-500"
+              />
+              
+              <button 
+                type="submit" 
+                disabled={status === "loading" || status === "success" || !consent}
+                className={`w-full sm:w-auto px-8 py-4 rounded-full font-bold text-white transition-all duration-300 transform ${
+                  status === "success" ? "bg-green-500 hover:scale-100" :
+                  status === "error" ? "bg-red-500 hover:scale-100" :
+                  !consent ? "bg-gray-400 dark:bg-white/10 cursor-not-allowed" :
+                  "bg-gradient-to-r from-[#A855F7] to-[#EC4899] hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-105"
+                }`}
+              >
+                {status === "loading" ? "..." : 
+                 status === "success" ? t.success : 
+                 status === "error" ? t.error : t.cta}
+              </button>
+            </div>
+
+            <label className="flex items-start justify-center gap-2 mt-4 text-left text-xs text-gray-500 dark:text-gray-400 cursor-pointer max-w-md mx-auto">
+              <input 
+                type="checkbox" 
+                checked={consent} 
+                onChange={(e) => setConsent(e.target.checked)} 
+                required
+                className="mt-0.5 accent-[#A855F7] w-4 h-4 flex-shrink-0"
+              />
+              <span>
+                {t.consentText}
+                <a 
+                  href={lang === "de" ? "/privacy-de" : "/privacy"} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="underline hover:text-purple-500 dark:hover:text-purple-400"
+                >
+                  {t.privacyLink}
+                </a>
+                {t.consentSuffix}
+              </span>
+            </label>
           </motion.form>
 
           {/* === ELEGANTER INSTAGRAM LINK === */}
