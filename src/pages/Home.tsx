@@ -1,6 +1,7 @@
 import AmbassadorBanner from '../components/v3/AmbassadorBanner';
 import HeroSection from '../components/v3/HeroSection';
 import StickyScrollShowcase from '../components/v3/StickyScrollShowcase';
+import B2BInfrastructure from '../components/v3/B2BInfrastructure';
 
 const Home = () => {
   return (
@@ -14,6 +15,9 @@ const Home = () => {
 
       {/* 2. Sticky-Scroll-Showcase als Support darunter */}
       <StickyScrollShowcase />
+
+      {/* 3. B2B / Für Venues */}
+      <B2BInfrastructure />
       
     </main>
   );
