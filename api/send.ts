@@ -3,20 +3,48 @@ import { Resend } from 'resend';
 // Vercel zieht sich den Key automatisch aus den Environment Variables
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Nur Aufrufe von der eigenen Seite zulassen
+const ALLOWED_ORIGINS = [
+    "https://www.gigiluko.com",
+    "https://gigiluko.com",
+    "https://gigilukoweb.vercel.app",
+];
+
+const isValidEmail = (email: unknown): email is string =>
+    typeof email === "string" &&
+    email.length <= 254 &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
 export default async function handler(req: any, res: any) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
-    const { email } = req.body;
+    // Origin-/Referer-Check: blockt direkte Aufrufe ausserhalb der eigenen Domain
+    const origin = (req.headers.origin as string) || "";
+    const referer = (req.headers.referer as string) || "";
+    const allowed = ALLOWED_ORIGINS.some(
+        (o) => origin === o || referer.startsWith(o)
+    );
+    if (!allowed) {
+        return res.status(403).json({ error: 'Forbidden' });
+    }
 
-    if (!email) {
-        return res.status(400).json({ error: 'Email is required' });
+    const { email, website } = (req.body || {}) as { email?: unknown; website?: unknown };
+
+    // Honeypot: Bots fuellen das versteckte Feld -> still mit OK abweisen
+    if (website) {
+        return res.status(200).json({ success: true });
+    }
+
+    if (!isValidEmail(email)) {
+        return res.status(400).json({ error: 'Invalid email' });
     }
 
     try {
         const data = await resend.emails.send({
             from: "GIGILUKO <hello@gigiluko.com>",
+            replyTo: "support@gigiluko.com",
             to: email,
             subject: "Du bist auf der Liste! 🚀 GIGILUKO Waitlist",
             html: `
