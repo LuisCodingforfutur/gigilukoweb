@@ -1,21 +1,13 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "GIGILUKO – Betriebssystem fürs Nachtleben",
+  "short_name": "GIGILUKO",
+  "description": "Das Betriebssystem fürs Nachtleben. Clubs, Bars und Events in Echtzeit.",
   "icons": [
-    {
-      "src": "/web-app-manifest-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
+    { "src": "/web-app-manifest-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/web-app-manifest-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "theme_color": "#05000a",
+  "background_color": "#05000a",
+  "display": "standalone",
+  "start_url": "/"
 }
