@@ -21,6 +21,7 @@ const Footer: React.FC = () => {
                         <h4 className="text-lg font-bold mb-4 text-black dark:text-white transition-colors duration-500">Company</h4>
                         <ul className="text-gray-600 dark:text-gray-400 space-y-2 transition-colors duration-500">
                             <li><a href="mailto:support@gigiluko.com" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Contact</a></li>
+                            <li><Link to="/ambassador" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Ambassador Program</Link></li>
                         </ul>
                     </div>
                     <div>
