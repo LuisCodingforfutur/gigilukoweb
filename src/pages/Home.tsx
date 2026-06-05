@@ -8,12 +8,12 @@ const Home = () => {
       
       {/* Das globale Ambassador Banner (Fixed Top) */}
       <AmbassadorBanner />
-      
-      {/* 1. Das V3 Herzstück (4-Bilder) */}
-      <StickyScrollShowcase />
-      
-      {/* 2. Der Waitlist-Bereich (unsere HeroSection) */}
+
+      {/* 1. Hero + Waitlist zuerst (above the fold) */}
       <HeroSection />
+
+      {/* 2. Sticky-Scroll-Showcase als Support darunter */}
+      <StickyScrollShowcase />
       
     </main>
   );
