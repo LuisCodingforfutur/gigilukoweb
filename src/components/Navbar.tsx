@@ -5,8 +5,8 @@ import { useLanguage } from "./Layout";
 interface Props { isDark: boolean; toggleTheme: () => void; }
 
 const navContent = {
-  de: { venues: "Für Venues", ambassador: "Ambassador", support: "Support" },
-  en: { venues: "For Venues", ambassador: "Ambassador", support: "Support" },
+  de: { venues: "Für Venues", pricing: "Preise", ambassador: "Ambassador", support: "Support" },
+  en: { venues: "For Venues", pricing: "Pricing", ambassador: "Ambassador", support: "Support" },
 };
 
 const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => {
@@ -42,6 +42,7 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => {
         {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-8 pointer-events-auto">
           <button onClick={goToVenues} className={linkClass}>{t.venues}</button>
+          <Link to="/pricing" className={linkClass}>{t.pricing}</Link>
           <Link to="/ambassador" className={linkClass}>{t.ambassador}</Link>
           <Link to="/support" className={linkClass}>{t.support}</Link>
         </div>
@@ -75,6 +76,7 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => {
         <div className="md:hidden pointer-events-auto mt-4 max-w-7xl mx-auto">
           <div className="bg-white/90 dark:bg-[#0a0014]/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl p-3 flex flex-col gap-1 shadow-2xl">
             <button onClick={goToVenues} className="text-left px-4 py-3 rounded-xl font-semibold text-gray-800 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">{t.venues}</button>
+            <Link to="/pricing" onClick={() => setMenuOpen(false)} className="px-4 py-3 rounded-xl font-semibold text-gray-800 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">{t.pricing}</Link>
             <Link to="/ambassador" onClick={() => setMenuOpen(false)} className="px-4 py-3 rounded-xl font-semibold text-gray-800 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">{t.ambassador}</Link>
             <Link to="/support" onClick={() => setMenuOpen(false)} className="px-4 py-3 rounded-xl font-semibold text-gray-800 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">{t.support}</Link>
           </div>

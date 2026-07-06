@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "../Layout";
 
 const content = {
@@ -13,7 +14,7 @@ const content = {
       { icon: "📊", title: "Analytics & Insights", desc: "Sieh, wer kommt: Traffic, Demografie, was funktioniert. Entscheidungen mit Daten, nicht aus dem Bauch." },
     ],
     cta: "Als Venue dabei sein",
-    pricingLink: "Preise ansehen →",
+    pricingLink: "Preise ansehen",
     ctaNote: "Wir starten mit ausgewählten Launch-Partnern. Sichere dir deinen Platz.",
   },
   en: {
@@ -28,7 +29,7 @@ const content = {
       { icon: "📊", title: "Analytics & Insights", desc: "See who shows up: traffic, demographics, what works. Decisions backed by data, not gut feeling." },
     ],
     cta: "Become a venue partner",
-    pricingLink: "View pricing →",
+    pricingLink: "View pricing",
     ctaNote: "We're launching with select partners. Secure your spot.",
   },
 };
@@ -76,14 +77,21 @@ const B2BInfrastructure = () => {
         </div>
 
         <div className="text-center">
-          <a
-            href="mailto:support@gigiluko.com?subject=Venue Partnership"
-            className="inline-block px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-[#A855F7] to-[#EC4899] hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-105 transition-all"
-          >
-            {t.cta}
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="mailto:support@gigiluko.com?subject=Venue Partnership"
+              className="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-[#A855F7] to-[#EC4899] hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-105 transition-all"
+            >
+              {t.cta}
+            </a>
+            <Link
+              to="/pricing"
+              className="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-[#EC4899]/50 transition-all"
+            >
+              {t.pricingLink}
+            </Link>
+          </div>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-4">{t.ctaNote}</p>
-          <a href="/pricing" className="inline-block mt-3 text-sm font-semibold text-[#A855F7] hover:text-[#EC4899] transition-colors">{t.pricingLink}</a>
         </div>
       </div>
     </section>

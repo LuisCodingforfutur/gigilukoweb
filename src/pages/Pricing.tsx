@@ -2,7 +2,7 @@ import { useLanguage } from "../components/Layout";
 
 const content = {
   de: {
-    badge: "PRICING",
+    badge: "FÜR VENUES",
     title1: "Ein Plan für",
     title2: "jedes Venue.",
     subtitle: "Vom einzelnen Club bis zur Gruppe — starte mit dem Plan, der zu deinem Venue passt.",
@@ -52,7 +52,7 @@ const content = {
     ],
   },
   en: {
-    badge: "PRICING",
+    badge: "FOR VENUES",
     title1: "A plan for",
     title2: "every venue.",
     subtitle: "From a single club to a group — start with the plan that fits your venue.",
