@@ -94,29 +94,12 @@ const HeroSection = () => {
       <div className="hidden md:block absolute top-[20%] left-[50%] -translate-x-1/2 w-[800px] h-[600px] bg-purple-500/20 dark:bg-purple-600/20 rounded-[100%] blur-[120px] pointer-events-none transition-colors duration-700 transform-gpu"></div>
       <div className="hidden md:block absolute top-[30%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-pink-500/20 dark:bg-pink-600/10 rounded-[100%] blur-[100px] pointer-events-none transition-colors duration-700 transform-gpu"></div>
 
-      {/* RADAR PINGS (App-Icon Optik) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-        <div className="relative w-[320px] h-[320px] md:w-[620px] md:h-[620px]">
-          <div className="radar-ring absolute inset-0" style={{ animationDelay: "0s" }}></div>
-          <div className="radar-ring absolute inset-0" style={{ animationDelay: "1.5s" }}></div>
-          <div className="radar-ring absolute inset-0" style={{ animationDelay: "3s" }}></div>
-        </div>
-      </div>
-
-      {/* FLOATING VENUE PINS (wie die App-Map) */}
-      <div className="hidden md:block pointer-events-none" aria-hidden="true">
-        <span className="hero-pin animate-float absolute top-[20%] left-[13%]" style={{ animationDelay: "0s" }}>🍺</span>
-        <span className="hero-pin animate-float absolute top-[32%] right-[11%]" style={{ animationDelay: "1.2s" }}>🌙</span>
-        <span className="hero-pin animate-float absolute bottom-[30%] left-[9%]" style={{ animationDelay: "2.1s" }}>🎧</span>
-        <span className="hero-pin animate-float absolute bottom-[22%] right-[15%]" style={{ animationDelay: "0.7s" }}>⚡</span>
-      </div>
-
       <div className="container mx-auto px-6 relative z-10 text-center max-w-5xl">
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col items-center">
           
           <motion.div variants={itemVariants} className="mb-8">
             <span className="inline-block py-1.5 px-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-xs md:text-sm font-semibold tracking-widest text-gray-700 dark:text-gray-300 transition-colors duration-500 transform-gpu">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#EC4899] animate-pulse-dot mr-2 align-middle"></span>{t.badge}
+              ✨ {t.badge}
             </span>
           </motion.div>
 
