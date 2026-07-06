@@ -8,6 +8,7 @@ const footerContent = {
     product: "Produkt",
     venues: "Für Venues",
     ambassador: "Ambassador Program",
+    pricing: "Preise",
     support: "Support",
     company: "Unternehmen",
     contact: "Kontakt",
@@ -24,6 +25,7 @@ const footerContent = {
     product: "Product",
     venues: "For Venues",
     ambassador: "Ambassador Program",
+    pricing: "Pricing",
     support: "Support",
     company: "Company",
     contact: "Contact",
@@ -100,6 +102,7 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-bold mb-4">{t.product}</h4>
             <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
               <li><button onClick={goToVenues} className={linkClass}>{t.venues}</button></li>
+              <li><Link to="/pricing" className={linkClass}>{t.pricing}</Link></li>
               <li><Link to="/ambassador" className={linkClass}>{t.ambassador}</Link></li>
               <li><Link to="/support" className={linkClass}>{t.support}</Link></li>
             </ul>

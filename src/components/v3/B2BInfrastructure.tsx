@@ -13,6 +13,7 @@ const content = {
       { icon: "📊", title: "Analytics & Insights", desc: "Sieh, wer kommt: Traffic, Demografie, was funktioniert. Entscheidungen mit Daten, nicht aus dem Bauch." },
     ],
     cta: "Als Venue dabei sein",
+    pricingLink: "Preise ansehen →",
     ctaNote: "Wir starten mit ausgewählten Launch-Partnern. Sichere dir deinen Platz.",
   },
   en: {
@@ -27,6 +28,7 @@ const content = {
       { icon: "📊", title: "Analytics & Insights", desc: "See who shows up: traffic, demographics, what works. Decisions backed by data, not gut feeling." },
     ],
     cta: "Become a venue partner",
+    pricingLink: "View pricing →",
     ctaNote: "We're launching with select partners. Secure your spot.",
   },
 };
@@ -81,6 +83,7 @@ const B2BInfrastructure = () => {
             {t.cta}
           </a>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-4">{t.ctaNote}</p>
+          <a href="/pricing" className="inline-block mt-3 text-sm font-semibold text-[#A855F7] hover:text-[#EC4899] transition-colors">{t.pricingLink}</a>
         </div>
       </div>
     </section>
