@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["DT4J5J7XBV.com.gigiluko.nightadvisor"],
+        "components": [
+          { "/": "/event/*", "comment": "Event-Deep-Links" }
+        ]
+      }
+    ]
+  }
+}
