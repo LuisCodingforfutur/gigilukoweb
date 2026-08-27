@@ -39,7 +39,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-32">
+    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-44 md:pt-52 pb-32">
 
       {/* PREMIUM GLOW */}
       <div className="hidden md:block absolute top-[20%] left-[50%] -translate-x-1/2 w-[800px] h-[600px] bg-purple-500/20 dark:bg-purple-600/20 rounded-[100%] blur-[120px] pointer-events-none transition-colors duration-700 transform-gpu"></div>
@@ -48,20 +48,20 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10 text-center max-w-5xl">
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col items-center">
 
-          <motion.div variants={itemVariants} className="mb-8">
+          <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-block py-1.5 px-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-xs md:text-sm font-semibold tracking-widest text-gray-700 dark:text-gray-300 transition-colors duration-500 transform-gpu">
               ✨ {t.badge}
             </span>
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-8 text-black dark:text-white transition-colors duration-500">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-6 text-black dark:text-white transition-colors duration-500">
             {t.title1} <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#EC4899]">
               {t.title2}
             </span>
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-600 dark:text-[#9ca3af] font-light max-w-2xl mx-auto mb-12 leading-relaxed transition-colors duration-500">
+          <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-600 dark:text-[#9ca3af] font-light max-w-2xl mx-auto mb-10 leading-relaxed transition-colors duration-500">
             {t.subtitle}
           </motion.p>
 
@@ -82,7 +82,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* === ELEGANTER INSTAGRAM LINK === */}
-          <motion.div variants={itemVariants} className="mt-12">
+          <motion.div variants={itemVariants} className="mt-10">
             <a
               href="https://www.instagram.com/gigilukoo/"
               target="_blank"

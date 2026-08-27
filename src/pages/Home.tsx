@@ -5,7 +5,7 @@ import B2BInfrastructure from '../components/v3/B2BInfrastructure';
 
 const Home = () => {
   return (
-    <main className="bg-white dark:bg-[#05000a] min-h-screen transition-colors duration-500 pt-10">
+    <main className="bg-white dark:bg-[#05000a] min-h-screen transition-colors duration-500">
       
       {/* Das globale Ambassador Banner (Fixed Top) */}
       <AmbassadorBanner />

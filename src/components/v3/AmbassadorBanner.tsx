@@ -3,11 +3,11 @@ import { useLanguage } from '../Layout';
 
 const content = {
   de: {
-    bannerText: "🚀 Werde GIGILUKO Ambassador – bring deine Stadt oder Uni aufs Radar!",
+    bannerText: "🚀 Werde GIGILUKO Ambassador",
     bannerCta: "Mehr erfahren"
   },
   en: {
-    bannerText: "🚀 Become a GIGILUKO Ambassador – put your city or uni on the radar!",
+    bannerText: "🚀 Become a GIGILUKO Ambassador",
     bannerCta: "Learn more"
   }
 };
@@ -19,10 +19,10 @@ const AmbassadorBanner = () => {
   return (
     <Link
       to="/ambassador"
-      className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[92%] md:w-auto z-[200] bg-gradient-to-r from-[#A855F7] to-[#EC4899] text-white py-2.5 px-6 rounded-full shadow-[0_8px_30px_rgba(168,85,247,0.3)] border border-white/20 cursor-pointer hover:scale-[1.02] transition-all flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-xs md:text-sm font-medium"
+      className="fixed top-3 md:top-5 left-1/2 -translate-x-1/2 z-[200] bg-white/5 backdrop-blur-xl text-gray-700 dark:text-gray-200 py-1.5 px-4 rounded-full border border-black/10 dark:border-white/15 cursor-pointer hover:border-[#EC4899]/50 transition-all flex flex-row items-center justify-center gap-2 md:gap-3 text-[11px] md:text-xs font-medium whitespace-nowrap"
     >
       <span>{t.bannerText}</span>
-      <span className="font-bold bg-white/20 px-3 py-1 rounded-full whitespace-nowrap">{t.bannerCta} &rarr;</span>
+      <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#EC4899] whitespace-nowrap">{t.bannerCta} &rarr;</span>
     </Link>
   );
 };
