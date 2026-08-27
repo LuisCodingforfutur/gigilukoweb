@@ -1,11 +1,13 @@
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "./Layout";
+import { APP_STORE_URL } from "../config/app";
 
 const footerContent = {
   de: {
     tagline: "Das Betriebssystem fürs Nachtleben. Wir digitalisieren das Nachtleben – weltweit.",
     product: "Produkt",
+    download: "iOS App laden",
     venues: "Für Venues",
     ambassador: "Ambassador Program",
     pricing: "Preise",
@@ -23,6 +25,7 @@ const footerContent = {
   en: {
     tagline: "The Operating System for Nightlife. We digitalize nightlife – worldwide.",
     product: "Product",
+    download: "Get the iOS App",
     venues: "For Venues",
     ambassador: "Ambassador Program",
     pricing: "Pricing",
@@ -101,6 +104,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold mb-4">{t.product}</h4>
             <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm">
+              <li><a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>{t.download}</a></li>
               <li><button onClick={goToVenues} className={linkClass}>{t.venues}</button></li>
               <li><Link to="/pricing" className={linkClass}>{t.pricing}</Link></li>
               <li><Link to="/ambassador" className={linkClass}>{t.ambassador}</Link></li>

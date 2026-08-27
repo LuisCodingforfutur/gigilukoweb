@@ -1,80 +1,31 @@
-import React, { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { useLanguage } from '../Layout';
-import { db } from '../../firebaseConfig';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { APP_STORE_URL } from '../../config/app';
 
 const content = {
   de: {
-    badge: "GIGILUKO V1 IS COMING",
+    badge: "JETZT IM APP STORE",
     title1: "Das Betriebssystem",
     title2: "für das Nachtleben.",
     subtitle: "Sieh live, was in deiner Stadt geht — Clubs, Bars und Events in Echtzeit auf deinem Radar.",
-    cta: "Auf die Warteliste",
-    placeholder: "Deine E-Mail Adresse...",
-    success: "Erfolgreich eingetragen!",
-    error: "Fehler aufgetreten!",
-    instagram: "Folge unserer Reise auf Instagram",
-    consentText: "Ich willige ein, dass meine E-Mail-Adresse zur Aufnahme in die Waitlist gespeichert wird. Details in der ",
-    privacyLink: "Datenschutzerklärung",
-    consentSuffix: "."
+    cta: "Im App Store laden",
+    ctaNote: "Kostenlos · iPhone & iPad · iOS 13+",
+    instagram: "Folge unserer Reise auf Instagram"
   },
   en: {
-    badge: "GIGILUKO V1 IS COMING",
+    badge: "NOW ON THE APP STORE",
     title1: "The Operating System",
     title2: "for Nightlife.",
     subtitle: "See what's happening in your city, live — clubs, bars and events in real time on your radar.",
-    cta: "Join the Waitlist",
-    placeholder: "Your email address...",
-    success: "Successfully joined!",
-    error: "Error occurred!",
-    instagram: "Follow our journey on Instagram",
-    consentText: "I consent to my email address being stored to join the waitlist. Details in the ",
-    privacyLink: "Privacy Policy",
-    consentSuffix: "."
+    cta: "Download on the App Store",
+    ctaNote: "Free · iPhone & iPad · iOS 13+",
+    instagram: "Follow our journey on Instagram"
   }
 };
 
 const HeroSection = () => {
   const { lang } = useLanguage();
   const t = content[lang];
-
-  // === WAITLIST LOGIK ===
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [consent, setConsent] = useState(false);
-
-  const handleWaitlist = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) return;
-    if (!consent) return;
-    setStatus("loading");
-    
-    try {
-      await addDoc(collection(db, "waitlist"), { 
-        email, 
-        timestamp: serverTimestamp() 
-      });
-      
-      try {
-        await fetch('/api/send', { 
-          method: 'POST', 
-          headers: { 'Content-Type': 'application/json' }, 
-          body: JSON.stringify({ email }) 
-        });
-      } catch (emailError) {
-        console.warn("E-Mail API Fehler ignoriert:", emailError);
-      }
-      
-      setStatus("success");
-      setEmail("");
-      setTimeout(() => setStatus("idle"), 3000);
-    } catch (error) { 
-      console.error("GIGILUKO Waitlist Error: ", error);
-      setStatus("error"); 
-      setTimeout(() => setStatus("idle"), 3000);
-    }
-  };
 
   // === ANIMATIONS PROFILE ===
   const containerVariants: Variants = {
@@ -89,14 +40,14 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-32">
-      
+
       {/* PREMIUM GLOW */}
       <div className="hidden md:block absolute top-[20%] left-[50%] -translate-x-1/2 w-[800px] h-[600px] bg-purple-500/20 dark:bg-purple-600/20 rounded-[100%] blur-[120px] pointer-events-none transition-colors duration-700 transform-gpu"></div>
       <div className="hidden md:block absolute top-[30%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-pink-500/20 dark:bg-pink-600/10 rounded-[100%] blur-[100px] pointer-events-none transition-colors duration-700 transform-gpu"></div>
 
       <div className="container mx-auto px-6 relative z-10 text-center max-w-5xl">
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col items-center">
-          
+
           <motion.div variants={itemVariants} className="mb-8">
             <span className="inline-block py-1.5 px-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-xs md:text-sm font-semibold tracking-widest text-gray-700 dark:text-gray-300 transition-colors duration-500 transform-gpu">
               ✨ {t.badge}
@@ -114,76 +65,37 @@ const HeroSection = () => {
             {t.subtitle}
           </motion.p>
 
-          {/* === INTERAKTIVES WAITLIST FORMULAR === */}
-          <motion.form 
-            variants={itemVariants} 
-            onSubmit={handleWaitlist} 
-            className="w-full max-w-lg mx-auto"
-          >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <input 
-                type="email" 
-                placeholder={t.placeholder} 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-                required
-                className="w-full sm:w-auto flex-grow px-6 py-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-black dark:text-white outline-none focus:border-purple-500 transition-all placeholder-gray-500"
-              />
-              
-              <button 
-                type="submit" 
-                disabled={status === "loading" || status === "success" || !consent}
-                className={`w-full sm:w-auto px-8 py-4 rounded-full font-bold text-white transition-all duration-300 transform ${
-                  status === "success" ? "bg-green-500 hover:scale-100" :
-                  status === "error" ? "bg-red-500 hover:scale-100" :
-                  !consent ? "bg-gray-400 dark:bg-white/10 cursor-not-allowed" :
-                  "bg-gradient-to-r from-[#A855F7] to-[#EC4899] hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-105"
-                }`}
-              >
-                {status === "loading" ? "..." : 
-                 status === "success" ? t.success : 
-                 status === "error" ? t.error : t.cta}
-              </button>
-            </div>
-
-            <label className="flex items-start justify-center gap-2 mt-4 text-left text-xs text-gray-500 dark:text-gray-400 cursor-pointer max-w-md mx-auto">
-              <input 
-                type="checkbox" 
-                checked={consent} 
-                onChange={(e) => setConsent(e.target.checked)} 
-                required
-                className="mt-0.5 accent-[#A855F7] w-4 h-4 flex-shrink-0"
-              />
-              <span>
-                {t.consentText}
-                <a 
-                  href={lang === "de" ? "/privacy-de" : "/privacy"} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="underline hover:text-purple-500 dark:hover:text-purple-400"
-                >
-                  {t.privacyLink}
-                </a>
-                {t.consentSuffix}
-              </span>
-            </label>
-          </motion.form>
+          {/* === APP STORE CTA === */}
+          <motion.div variants={itemVariants} className="w-full flex flex-col items-center">
+            <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-[#A855F7] to-[#EC4899] hover:shadow-[0_0_40px_rgba(168,85,247,0.45)] hover:scale-105 transition-all duration-300"
+            >
+              <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16.365 1.43c0 1.14-.42 2.2-1.12 3.02-.84.99-2.2 1.75-3.34 1.66a3.6 3.6 0 0 1-.03-.42c0-1.1.48-2.24 1.2-3.03.79-.9 2.17-1.6 3.24-1.64.02.14.05.28.05.41zM20.9 17.1c-.55 1.27-.82 1.84-1.53 2.96-.99 1.57-2.38 3.52-4.1 3.53-1.53.02-1.93-1-4.01-.99-2.08.01-2.51 1.01-4.04.99-1.72-.02-3.04-1.78-4.03-3.34C.4 15.9-.1 10.75 1.6 8.01c1.2-1.94 3.1-3.08 4.88-3.08 1.82 0 2.96 1 4.47 1 1.46 0 2.35-1 4.45-1 1.59 0 3.27.87 4.47 2.36-3.93 2.16-3.29 7.78 1.03 9.81z"/>
+              </svg>
+              {t.cta}
+            </a>
+            <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">{t.ctaNote}</p>
+          </motion.div>
 
           {/* === ELEGANTER INSTAGRAM LINK === */}
           <motion.div variants={itemVariants} className="mt-12">
-            <a 
-              href="https://www.instagram.com/gigilukoo/" 
-              target="_blank" 
+            <a
+              href="https://www.instagram.com/gigilukoo/"
+              target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-[#EC4899]/50 transition-all duration-300"
             >
-              <svg 
-                className="w-5 h-5 text-gray-500 group-hover:text-[#EC4899] transition-colors duration-300" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg
+                className="w-5 h-5 text-gray-500 group-hover:text-[#EC4899] transition-colors duration-300"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>

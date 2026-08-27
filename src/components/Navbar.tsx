@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "./Layout";
+import { APP_STORE_URL } from "../config/app";
 
 interface Props { isDark: boolean; toggleTheme: () => void; }
 
 const navContent = {
-  de: { venues: "Für Venues", pricing: "Preise", ambassador: "Ambassador", support: "Support" },
-  en: { venues: "For Venues", pricing: "Pricing", ambassador: "Ambassador", support: "Support" },
+  de: { venues: "Für Venues", pricing: "Preise", ambassador: "Ambassador", support: "Support", download: "App laden" },
+  en: { venues: "For Venues", pricing: "Pricing", ambassador: "Ambassador", support: "Support", download: "Get the App" },
 };
 
 const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => {
@@ -45,6 +46,14 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => {
           <Link to="/pricing" className={linkClass}>{t.pricing}</Link>
           <Link to="/ambassador" className={linkClass}>{t.ambassador}</Link>
           <Link to="/support" className={linkClass}>{t.support}</Link>
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#A855F7] to-[#EC4899] hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:scale-105 transition-all whitespace-nowrap"
+          >
+            {t.download}
+          </a>
         </div>
 
         {/* Right controls */}
@@ -79,6 +88,7 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => {
             <Link to="/pricing" onClick={() => setMenuOpen(false)} className="px-4 py-3 rounded-xl font-semibold text-gray-800 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">{t.pricing}</Link>
             <Link to="/ambassador" onClick={() => setMenuOpen(false)} className="px-4 py-3 rounded-xl font-semibold text-gray-800 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">{t.ambassador}</Link>
             <Link to="/support" onClick={() => setMenuOpen(false)} className="px-4 py-3 rounded-xl font-semibold text-gray-800 dark:text-gray-100 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">{t.support}</Link>
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="mt-1 px-4 py-3 rounded-xl font-bold text-center text-white bg-gradient-to-r from-[#A855F7] to-[#EC4899]">{t.download}</a>
           </div>
         </div>
       )}
