@@ -3,54 +3,88 @@
 // Warum es das braucht: gigilukoweb ist eine Vite-SPA, und vercel.json hat
 // einen Catch-all-Rewrite auf /index.html. WhatsApp, Instagram und Facebook
 // fuehren kein JS aus — sie lesen nur das erste HTML-Response. Jede geteilte
-// URL bekam damit die statischen OG-Tags der Startseite: og:url zeigte auf
-// "/", der Titel war fuer jedes Event gleich, das Bild war das PWA-Icon.
+// URL bekam damit die statischen OG-Tags der Startseite.
 //
-// Diese Function liefert pro Objekt echtes HTML mit eigenen Tags. Sie steht in
-// vercel.json VOR dem Catch-all, sonst greift der zuerst.
-//
-// Auf iOS/Android fangen die Universal Links / App Links den Klick ab, bevor
-// diese Seite ueberhaupt laedt. Sie ist also fuer Crawler, fuer Desktop und
-// fuer Geraete ohne installierte App.
-import {
-    getShareCard, isShareType, isValidId, APP_STORE_URL,
-} from "./_lib/sharecard";
+// ACHTUNG, bewusste Duplizierung: die Helfer unten standen zuerst in
+// api/_lib/sharecard.ts und wurden von hier und von api/og.ts importiert.
+// Vercels Node-Builder zieht relative Importe in diesem Projekt NICHT mit —
+// beide Functions starben mit FUNCTION_INVOCATION_FAILED, waehrend
+// api/send.ts (nur node_modules-Importe) lief. Jede Function ist deshalb
+// eigenstaendig. Wer das wieder zusammenfasst, muss es vorher auf einem
+// Preview-Deploy verifizieren.
 
-const SITE = "https://www.gigiluko.com";
+const PROJECT = 'gigiluko';
+const SITE = 'https://www.gigiluko.com';
+const APP_STORE_URL = 'https://apps.apple.com/de/app/gigiluko/id6764666289';
+const SHARE_TYPES = ['event', 'venue', 'post', 'performer'] as const;
+type ShareType = (typeof SHARE_TYPES)[number];
+
+function unwrap(v: any): any {
+    if (v == null) return null;
+    if ('stringValue' in v) return v.stringValue;
+    if ('integerValue' in v) return Number(v.integerValue);
+    if ('doubleValue' in v) return v.doubleValue;
+    if ('booleanValue' in v) return v.booleanValue;
+    if ('timestampValue' in v) return new Date(v.timestampValue);
+    if ('nullValue' in v) return null;
+    return null;
+}
+
+/** Liest die oeffentliche Spiegel-Collection shareCards per Firestore-REST. */
+async function getShareCard(type: ShareType, id: string) {
+    const key = process.env.FIREBASE_WEB_API_KEY;
+    if (!key) return null;
+    const url =
+        `https://firestore.googleapis.com/v1/projects/${PROJECT}` +
+        `/databases/(default)/documents/shareCards/${type}_${id}?key=${key}`;
+    try {
+        const res = await fetch(url);
+        if (!res.ok) return null;
+        const fields = (await res.json())?.fields ?? {};
+        const f = (n: string) => unwrap(fields[n]);
+        return {
+            title: f('title') as string | null,
+            venueName: f('venueName') as string | null,
+            city: f('city') as string | null,
+        };
+    } catch {
+        return null;
+    }
+}
 
 const esc = (s: string) =>
-    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
 export default async function handler(req: any, res: any) {
-    const type = String(req.query?.type ?? "");
-    const id = String(req.query?.id ?? "");
+    const type = String(req.query?.type ?? '');
+    const id = String(req.query?.id ?? '');
 
-    if (!isShareType(type) || !isValidId(id)) {
-        res.setHeader("Location", SITE);
+    if (!(SHARE_TYPES as readonly string[]).includes(type) ||
+        !/^[A-Za-z0-9_-]{1,128}$/.test(id)) {
+        res.setHeader('Location', SITE);
         return res.status(302).end();
     }
 
-    const card = await getShareCard(type, id);
+    const card = await getShareCard(type as ShareType, id);
 
-    const noun = type === "venue" ? "Location" : "Event";
+    const noun = type === 'venue' ? 'Location' : 'Event';
     const title = card?.title
         ? `${card.title} · GIGILUKO`
-        : "GIGILUKO – Das Betriebssystem fürs Nachtleben";
+        : 'GIGILUKO – Das Betriebssystem fürs Nachtleben';
     const description = card
-        ? [card.venueName ?? card.city, "Auf GIGILUKO sehen, wie viel los ist."]
-            .filter(Boolean).join(" · ")
-        : "Entdecke Clubs, Bars und Events in Echtzeit.";
+        ? [card.venueName ?? card.city, 'Auf GIGILUKO sehen, wie viel los ist.']
+            .filter(Boolean).join(' · ')
+        : 'Entdecke Clubs, Bars und Events in Echtzeit.';
 
     const canonical = `${SITE}/${type}/${encodeURIComponent(id)}`;
-    const ogImage =
-        `${SITE}/api/og?type=${type}&id=${encodeURIComponent(id)}`;
+    const ogImage = `${SITE}/api/og?type=${type}&id=${encodeURIComponent(id)}`;
 
-    // 5 Minuten CDN-Cache: die Auslastungsstufe soll sich noch bewegen
-    // duerfen, ohne dass jeder Crawler-Hit eine Firestore-Leseoperation kostet.
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control",
-        "public, s-maxage=300, stale-while-revalidate=600");
+    // 5 Minuten CDN-Cache: die Auslastungsstufe soll sich bewegen duerfen,
+    // ohne dass jeder Crawler-Hit eine Firestore-Leseoperation kostet.
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('Cache-Control',
+        'public, s-maxage=300, stale-while-revalidate=600');
 
     return res.status(200).send(`<!DOCTYPE html>
 <html lang="de">
@@ -104,7 +138,7 @@ export default async function handler(req: any, res: any) {
     <div class="brand">GIGILUKO</div>
     <h1>${esc(card?.title ?? `${noun} auf GIGILUKO`)}</h1>
     ${card?.venueName || card?.city
-        ? `<p>${esc(card.venueName ?? card.city ?? "")}</p>` : ""}
+        ? `<p>${esc(card.venueName ?? card.city ?? '')}</p>` : ''}
     <a class="cta" href="${APP_STORE_URL}">In der App öffnen</a>
   </div>
 </body>
