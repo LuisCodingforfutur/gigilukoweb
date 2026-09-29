@@ -87,7 +87,11 @@ function formatDate(d: Date | null | undefined): string | null {
 const box = (style: Record<string, unknown>, ...kids: unknown[]) =>
     h('div', { style: { display: 'flex', ...style } }, ...(kids as never[]));
 
-export default async function handler(req: any) {
+// Node-Signatur (req, res) — NICHT `(req) => Response`. Letzteres ist die
+// Edge-Signatur; auf der Node-Runtime wird dann nie auf res geschrieben und
+// die Function haengt bis zum Timeout. api/share.ts lief von Anfang an,
+// weil es (req, res) benutzt.
+export default async function handler(req: any, res: any) {
     const q = new URL(req.url, 'https://www.gigiluko.com').searchParams;
     const type = q.get('type') ?? '';
     const id = q.get('id') ?? '';
@@ -167,5 +171,13 @@ export default async function handler(req: any) {
         ),
     );
 
-    return new ImageResponse(tree as never, { width: 1200, height: 630 });
+    const image = new ImageResponse(tree as never, { width: 1200, height: 630 });
+    const buf = Buffer.from(await image.arrayBuffer());
+
+    res.setHeader('Content-Type', 'image/png');
+    // Lange cachen: die Karte aendert sich nur, wenn sich das Objekt aendert,
+    // und Crawler holen sie ohnehin nur einmal.
+    res.setHeader('Cache-Control',
+        'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800');
+    return res.status(200).end(buf);
 }
