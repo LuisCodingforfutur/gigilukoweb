@@ -23,3 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 .commit_msg_*.txt
+.vercel
+.env*
