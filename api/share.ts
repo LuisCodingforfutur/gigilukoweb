@@ -122,7 +122,13 @@ export default async function handler(req: any, res: any) {
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(ogImage)}">
 
-<!-- Smart App Banner: iOS zeigt in Safari einen Balken zur App. -->
+<!-- Smart App Banner: iOS zeigt in Safari einen Balken zur App und
+     beschriftet ihn selbst - "OEFFNEN" bei installierter App, sonst
+     "LADEN". Deshalb ist er hier der richtige Weg fuer beide Faelle.
+     Der Button unten fuehrt dagegen immer in den App Store; er hiess
+     frueher "In der App oeffnen" und versprach damit etwas, das er
+     nicht kann. Wer diese Seite sieht, ist hier gelandet, WEIL der
+     Universal Link nicht gegriffen hat. -->
 <meta name="apple-itunes-app" content="app-id=6764666289, app-argument=${esc(canonical)}">
 
 <style>
@@ -146,7 +152,7 @@ export default async function handler(req: any, res: any) {
     <h1>${esc(card?.title ?? `${noun} auf GIGILUKO`)}</h1>
     ${card?.venueName || card?.city
         ? `<p>${esc(card.venueName ?? card.city ?? '')}</p>` : ''}
-    <a class="cta" href="${APP_STORE_URL}">In der App öffnen</a>
+    <a class="cta" href="${APP_STORE_URL}">Im App Store laden</a>
   </div>
 </body>
 </html>`);
