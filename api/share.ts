@@ -78,7 +78,14 @@ export default async function handler(req: any, res: any) {
         : 'Entdecke Clubs, Bars und Events in Echtzeit.';
 
     const canonical = `${SITE}/${type}/${encodeURIComponent(id)}`;
-    const ogImage = `${SITE}/api/og?type=${type}&id=${encodeURIComponent(id)}`;
+    // Statische Karte statt @vercel/og. Die dynamische Variante rendert mit
+    // Satori und Standardschrift, und ihr Ergebnis laesst sich nur ueber
+    // einen Deploy pruefen — das hat eine unbrauchbare Karte und fuenf
+    // Deploy-Zyklen gekostet. Erzeugt von tools/make-og-card.py, dort
+    // aenderbar und lokal sofort sichtbar.
+    // Objektspezifische Titel stehen weiterhin in og:title; nur das BILD
+    // ist fuer alle gleich.
+    const ogImage = `${SITE}/og-default.png`;
 
     // 5 Minuten CDN-Cache: die Auslastungsstufe soll sich bewegen duerfen,
     // ohne dass jeder Crawler-Hit eine Firestore-Leseoperation kostet.
