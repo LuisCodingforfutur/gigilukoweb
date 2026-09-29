@@ -3,9 +3,35 @@
     "apps": [],
     "details": [
       {
-        "appIDs": ["DT4J5J7XBV.com.gigiluko.nightadvisor"],
+        "appIDs": [
+          "DT4J5J7XBV.com.gigiluko.nightadvisor"
+        ],
         "components": [
-          { "/": "/event/*", "comment": "Event-Deep-Links" }
+          {
+            "/": "/event/*",
+            "comment": "Event-Deep-Links"
+          },
+          {
+            "/": "/venue/*",
+            "comment": "Venue-Deep-Links"
+          },
+          {
+            "/": "/post/*",
+            "comment": "Post-Deep-Links"
+          },
+          {
+            "/": "/u/*",
+            "comment": "Profil-Deep-Links"
+          },
+          {
+            "/": "/performer/*",
+            "comment": "Performer-Deep-Links"
+          },
+          {
+            "/": "/.well-known/*",
+            "exclude": true,
+            "comment": "Verifizierungsdateien nie in die App routen"
+          }
         ]
       }
     ]

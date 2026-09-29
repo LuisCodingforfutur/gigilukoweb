@@ -8,6 +8,15 @@
           "value": "application/json"
         }
       ]
+    },
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -23,6 +32,22 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/event/:id",
+      "destination": "/api/share?type=event&id=:id"
+    },
+    {
+      "source": "/venue/:id",
+      "destination": "/api/share?type=venue&id=:id"
+    },
+    {
+      "source": "/post/:id",
+      "destination": "/api/share?type=post&id=:id"
+    },
+    {
+      "source": "/performer/:id",
+      "destination": "/api/share?type=performer&id=:id"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
