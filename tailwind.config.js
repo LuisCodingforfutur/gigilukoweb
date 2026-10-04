@@ -18,8 +18,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Space Grotesk"', "system-ui", "sans-serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+        sans: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
       },
     },
   },
