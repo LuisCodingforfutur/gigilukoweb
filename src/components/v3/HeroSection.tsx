@@ -50,7 +50,7 @@ const HeroSection = () => {
 
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-block py-1.5 px-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 backdrop-blur-md text-xs md:text-sm font-semibold tracking-widest text-gray-700 dark:text-gray-300 transition-colors duration-500 transform-gpu">
-              ✨ {t.badge}
+              {t.badge}
             </span>
           </motion.div>
 

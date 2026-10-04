@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../Layout";
+import { Megaphone, Target, BarChart } from "../Icons";
 
 const content = {
   de: {
@@ -9,9 +10,9 @@ const content = {
     subtitle:
       "GIGILUKO ist nicht nur für Nachtschwärmer. Clubs, Bars und Veranstalter steuern ihre Sichtbarkeit, erreichen die richtigen Gäste und verstehen ihr Publikum — in Echtzeit.",
     cards: [
-      { icon: "📣", title: "Live-Marketing", desc: "Poste Updates, Events und Specials — und erreiche Gäste genau dann, wenn sie entscheiden, wohin sie gehen." },
-      { icon: "🎯", title: "Gezielte Pushes", desc: "Erreiche Nutzer in deiner Stadt direkt — statt teurer Streuwerbung, die niemanden erreicht." },
-      { icon: "📊", title: "Analytics & Insights", desc: "Sieh, wer kommt: Traffic, Demografie, was funktioniert. Entscheidungen mit Daten, nicht aus dem Bauch." },
+      { title: "Live-Marketing", desc: "Poste Updates, Events und Specials — und erreiche Gäste genau dann, wenn sie entscheiden, wohin sie gehen." },
+      { title: "Gezielte Pushes", desc: "Erreiche Nutzer in deiner Stadt direkt — statt teurer Streuwerbung, die niemanden erreicht." },
+      { title: "Analytics & Insights", desc: "Sieh, wer kommt: Traffic, Demografie, was funktioniert. Entscheidungen mit Daten, nicht aus dem Bauch." },
     ],
     cta: "Als Venue dabei sein",
     pricingLink: "Preise ansehen",
@@ -24,15 +25,21 @@ const content = {
     subtitle:
       "GIGILUKO isn't just for partygoers. Clubs, bars and promoters control their visibility, reach the right guests and understand their crowd — in real time.",
     cards: [
-      { icon: "📣", title: "Live Marketing", desc: "Post updates, events and specials — and reach guests exactly when they're deciding where to go." },
-      { icon: "🎯", title: "Targeted Pushes", desc: "Reach users in your city directly — instead of expensive scattershot ads that reach no one." },
-      { icon: "📊", title: "Analytics & Insights", desc: "See who shows up: traffic, demographics, what works. Decisions backed by data, not gut feeling." },
+      { title: "Live Marketing", desc: "Post updates, events and specials — and reach guests exactly when they're deciding where to go." },
+      { title: "Targeted Pushes", desc: "Reach users in your city directly — instead of expensive scattershot ads that reach no one." },
+      { title: "Analytics & Insights", desc: "See who shows up: traffic, demographics, what works. Decisions backed by data, not gut feeling." },
     ],
     cta: "Become a venue partner",
     pricingLink: "View pricing",
     ctaNote: "We're launching with select partners. Secure your spot.",
   },
 };
+
+const cardIcons = [
+  <Megaphone key="mega" className="w-6 h-6" />,
+  <Target key="target" className="w-6 h-6" />,
+  <BarChart key="chart" className="w-6 h-6" />,
+];
 
 const B2BInfrastructure = () => {
   const { lang } = useLanguage();
@@ -67,8 +74,8 @@ const B2BInfrastructure = () => {
               key={i}
               className="bg-black/[0.03] dark:bg-white/5 border border-black/10 dark:border-white/10 p-8 rounded-[1.75rem] hover:border-[#EC4899]/40 transition-all"
             >
-              <div className="w-14 h-14 bg-pink-500/15 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                {card.icon}
+              <div className="w-14 h-14 bg-pink-500/15 rounded-2xl flex items-center justify-center mb-6 text-[#EC4899]">
+                {cardIcons[i]}
               </div>
               <h3 className="text-xl font-bold mb-3">{card.title}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{card.desc}</p>

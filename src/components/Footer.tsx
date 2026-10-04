@@ -20,7 +20,7 @@ const footerContent = {
     guidelines: "Community Guidelines",
     impressum: "Impressum",
     dsa: "Digital Services Act (DSA)",
-    rights: "Alle Rechte vorbehalten. Made with 🔥 for the Nightlife.",
+    rights: "Alle Rechte vorbehalten. Made for the Nightlife.",
   },
   en: {
     tagline: "The Operating System for Nightlife. We digitalize nightlife – worldwide.",
@@ -38,7 +38,7 @@ const footerContent = {
     guidelines: "Community Guidelines",
     impressum: "Imprint",
     dsa: "Digital Services Act (DSA)",
-    rights: "All rights reserved. Made with 🔥 for the Nightlife.",
+    rights: "All rights reserved. Made for the Nightlife.",
   },
 };
 

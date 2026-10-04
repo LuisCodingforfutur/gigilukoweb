@@ -3,11 +3,11 @@ import { useLanguage } from '../Layout';
 
 const content = {
   de: {
-    bannerText: "🚀 Werde GIGILUKO Ambassador",
+    bannerText: "Werde GIGILUKO Ambassador",
     bannerCta: "Mehr erfahren"
   },
   en: {
-    bannerText: "🚀 Become a GIGILUKO Ambassador",
+    bannerText: "Become a GIGILUKO Ambassador",
     bannerCta: "Learn more"
   }
 };

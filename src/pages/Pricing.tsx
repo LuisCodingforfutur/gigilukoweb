@@ -1,4 +1,5 @@
 import { useLanguage } from "../components/Layout";
+import { Check } from "../components/Icons";
 
 const content = {
   de: {
@@ -164,7 +165,7 @@ const Pricing = () => {
                 )}
                 {tier.features.map((f, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="text-[#EC4899] mt-0.5">✦</span>
+                    <Check className="w-4 h-4 text-[#EC4899] mt-1 flex-shrink-0" />
                     <span>{f}</span>
                   </li>
                 ))}

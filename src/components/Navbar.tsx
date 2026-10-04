@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "./Layout";
+import { Sun, Moon, MenuIcon, XIcon } from "./Icons";
 import { APP_STORE_URL } from "../config/app";
 
 interface Props { isDark: boolean; toggleTheme: () => void; }
@@ -71,11 +72,11 @@ const Navbar: React.FC<Props> = ({ isDark, toggleTheme }) => {
           </button>
 
           <button onClick={toggleTheme} className={`${iconClass} text-gray-500 dark:text-purple-400`}>
-            <span className="text-sm md:text-base">{isDark ? "☀️" : "🌙"}</span>
+            {isDark ? <Sun className="w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
           </button>
 
           <button onClick={() => setMenuOpen(!menuOpen)} className={`${iconClass} md:hidden text-gray-700 dark:text-white`} aria-label="Menu">
-            <span className="text-lg leading-none">{menuOpen ? "✕" : "☰"}</span>
+            {menuOpen ? <XIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
           </button>
         </div>
       </div>

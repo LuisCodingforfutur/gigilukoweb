@@ -1,4 +1,5 @@
 import { useLanguage } from "../components/Layout";
+import { GraduationCap, Building, BadgeCheck, Shirt, Users, Rocket, Check } from "../components/Icons";
 
 const content = {
   de: {
@@ -26,10 +27,10 @@ const content = {
     perksTitle: "Was du bekommst",
     perksSub: "Das springt für dich raus.",
     perks: [
-      { icon: "🏷️", title: "Verifiziertes Ambassador-Badge", desc: "Sichtbares, verifiziertes Badge in deinem GIGILUKO-Profil – für alle erkennbar." },
-      { icon: "👕", title: "Exklusives Merch", desc: "GIGILUKO-Merch, das es nirgendwo zu kaufen gibt." },
-      { icon: "🤝", title: "Direkter Draht zum Founder-Team", desc: "Du arbeitest direkt mit Gigi & Lukas und gestaltest die App mit." },
-      { icon: "🚀", title: "Startup-Erfahrung fürs echte Leben", desc: "Verantwortung, Netzwerk und Einblick in den Aufbau eines Startups – zählt mehr als jede Vorlesung." },
+      { title: "Verifiziertes Ambassador-Badge", desc: "Sichtbares, verifiziertes Badge in deinem GIGILUKO-Profil – für alle erkennbar." },
+      { title: "Exklusives Merch", desc: "GIGILUKO-Merch, das es nirgendwo zu kaufen gibt." },
+      { title: "Direkter Draht zum Founder-Team", desc: "Du arbeitest direkt mit Gigi & Lukas und gestaltest die App mit." },
+      { title: "Startup-Erfahrung fürs echte Leben", desc: "Verantwortung, Netzwerk und Einblick in den Aufbau eines Startups – zählt mehr als jede Vorlesung." },
     ],
     faqTitle: "Häufige Fragen",
     faqs: [
@@ -68,10 +69,10 @@ const content = {
     perksTitle: "What you get",
     perksSub: "Here's what's in it for you.",
     perks: [
-      { icon: "🏷️", title: "Verified Ambassador Badge", desc: "A visible, verified badge in your GIGILUKO profile – recognizable to everyone." },
-      { icon: "👕", title: "Exclusive Merch", desc: "GIGILUKO merch you can't buy anywhere." },
-      { icon: "🤝", title: "Direct Line to the Founders", desc: "You work directly with Gigi & Lukas and help shape the app." },
-      { icon: "🚀", title: "Real-World Startup Experience", desc: "Responsibility, network and insight into building a startup – worth more than any lecture." },
+      { title: "Verified Ambassador Badge", desc: "A visible, verified badge in your GIGILUKO profile – recognizable to everyone." },
+      { title: "Exclusive Merch", desc: "GIGILUKO merch you can't buy anywhere." },
+      { title: "Direct Line to the Founders", desc: "You work directly with Gigi & Lukas and help shape the app." },
+      { title: "Real-World Startup Experience", desc: "Responsibility, network and insight into building a startup – worth more than any lecture." },
     ],
     faqTitle: "Frequently Asked Questions",
     faqs: [
@@ -86,6 +87,13 @@ const content = {
     ctaEmail: "Apply via email",
   },
 };
+
+const perkIcons = [
+  <BadgeCheck key="badge" className="w-6 h-6" />,
+  <Shirt key="shirt" className="w-6 h-6" />,
+  <Users key="users" className="w-6 h-6" />,
+  <Rocket key="rocket" className="w-6 h-6" />,
+];
 
 const Ambassador = () => {
   const { lang } = useLanguage();
@@ -121,14 +129,14 @@ const Ambassador = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {/* University */}
             <div className="bg-black/[0.03] dark:bg-white/5 border border-black/10 dark:border-white/10 p-8 rounded-[2rem] hover:border-[#A855F7]/50 transition-all flex flex-col">
-              <div className="w-14 h-14 bg-purple-500/15 rounded-2xl flex items-center justify-center mb-6 text-2xl">🎓</div>
+              <div className="w-14 h-14 bg-purple-500/15 rounded-2xl flex items-center justify-center mb-6 text-[#A855F7]"><GraduationCap className="w-7 h-7" /></div>
               <h3 className="text-2xl font-bold mb-3">{t.uniTitle}</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">{t.uniDesc}</p>
               <p className="text-xs font-bold uppercase tracking-widest text-[#A855F7] mb-4">{t.tasksLabel}</p>
               <ul className="space-y-3">
                 {t.uniTasks.map((task, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="text-[#A855F7] mt-0.5">✦</span>
+                    <Check className="w-4 h-4 text-[#A855F7] mt-1 flex-shrink-0" />
                     <span>{task}</span>
                   </li>
                 ))}
@@ -137,14 +145,14 @@ const Ambassador = () => {
 
             {/* City */}
             <div className="bg-black/[0.03] dark:bg-white/5 border border-black/10 dark:border-white/10 p-8 rounded-[2rem] hover:border-[#EC4899]/50 transition-all flex flex-col">
-              <div className="w-14 h-14 bg-pink-500/15 rounded-2xl flex items-center justify-center mb-6 text-2xl">🏙️</div>
+              <div className="w-14 h-14 bg-pink-500/15 rounded-2xl flex items-center justify-center mb-6 text-[#EC4899]"><Building className="w-7 h-7" /></div>
               <h3 className="text-2xl font-bold mb-3">{t.cityTitle}</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">{t.cityDesc}</p>
               <p className="text-xs font-bold uppercase tracking-widest text-[#EC4899] mb-4">{t.tasksLabel}</p>
               <ul className="space-y-3">
                 {t.cityTasks.map((task, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="text-[#EC4899] mt-0.5">✦</span>
+                    <Check className="w-4 h-4 text-[#EC4899] mt-1 flex-shrink-0" />
                     <span>{task}</span>
                   </li>
                 ))}
@@ -162,7 +170,7 @@ const Ambassador = () => {
           <div className="grid sm:grid-cols-2 gap-6">
             {t.perks.map((perk, i) => (
               <div key={i} className="bg-black/[0.03] dark:bg-white/5 border border-black/10 dark:border-white/10 p-6 rounded-[1.5rem] flex items-start gap-4">
-                <div className="text-2xl flex-shrink-0">{perk.icon}</div>
+                <div className="flex-shrink-0 text-[#A855F7]">{perkIcons[i]}</div>
                 <div>
                   <h3 className="font-bold mb-1">{perk.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{perk.desc}</p>
