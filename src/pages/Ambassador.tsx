@@ -6,9 +6,9 @@ const content = {
     badge: "AMBASSADOR PROGRAM",
     h1a: "Werde",
     h1b: "GIGILUKO Ambassador.",
-    heroSub: "Du bist gut vernetzt, gehst gern feiern und willst etwas Großes mitaufbauen? Dann bring GIGILUKO in deine Stadt oder an deine Uni.",
+    heroSub: "Du bist gut vernetzt, gehst gern feiern und willst ein Startup von Tag eins mitaufbauen? Dann bring GIGILUKO in deine Stadt oder an deine Uni.",
     pathsTitle: "Wähle deinen Weg",
-    pathsSub: "Zwei Wege, eine Mission: das Nachtleben digitalisieren.",
+    pathsSub: "Zwei Wege: dein Campus oder deine Stadt.",
     uniTitle: "University Ambassador",
     uniDesc: "Du machst GIGILUKO zum Gesprächsthema auf deinem Campus.",
     uniTasks: [
@@ -48,9 +48,9 @@ const content = {
     badge: "AMBASSADOR PROGRAM",
     h1a: "Become a",
     h1b: "GIGILUKO Ambassador.",
-    heroSub: "You're well connected, love going out and want to help build something big? Then bring GIGILUKO to your city or your university.",
+    heroSub: "You're well connected, love going out and want to build a startup from day one? Then bring GIGILUKO to your city or your university.",
     pathsTitle: "Choose your path",
-    pathsSub: "Two paths, one mission: digitalize nightlife.",
+    pathsSub: "Two paths: your campus or your city.",
     uniTitle: "University Ambassador",
     uniDesc: "You make GIGILUKO the talk of your campus.",
     uniTasks: [

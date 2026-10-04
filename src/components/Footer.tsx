@@ -5,7 +5,7 @@ import { APP_STORE_URL } from "../config/app";
 
 const footerContent = {
   de: {
-    tagline: "Das Betriebssystem fürs Nachtleben. Wir digitalisieren das Nachtleben – weltweit.",
+    tagline: "Das Betriebssystem fürs Nachtleben. Gebaut in Stuttgart.",
     product: "Produkt",
     download: "iOS App laden",
     venues: "Für Venues",
@@ -23,7 +23,7 @@ const footerContent = {
     rights: "Alle Rechte vorbehalten. Made for the Nightlife.",
   },
   en: {
-    tagline: "The Operating System for Nightlife. We digitalize nightlife – worldwide.",
+    tagline: "The Operating System for Nightlife. Built in Stuttgart.",
     product: "Product",
     download: "Get the iOS App",
     venues: "For Venues",
