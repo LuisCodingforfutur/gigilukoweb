@@ -129,7 +129,7 @@ const CommunityGuidelines: React.FC = () => {
 
             <section>
                 <h2>9. Contact</h2>
-                <p><strong>GIGILUKO Technologies UG (haftungsbeschränkt) i.Gr.</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Germany<br/>Email: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a></p>
+                <p><strong>GIGILUKO Technologies GbR</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Germany<br/>Email: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a></p>
                 <p>See also: <a href="/terms">Terms of Service</a> | <a href="/privacy">Privacy Policy</a></p>
             </section>
         </LegalPage>

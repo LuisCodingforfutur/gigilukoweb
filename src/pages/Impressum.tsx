@@ -6,10 +6,10 @@ const Impressum: React.FC = () => {
         <LegalPage title="Impressum" lastUpdated="April 2026">
             <section>
                 <h2>Angaben gemäß § 5 TMG</h2>
-                <p><strong>GIGILUKO Technologies UG (haftungsbeschränkt) i.Gr.</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Deutschland</p>
+                <p><strong>GIGILUKO Technologies GbR</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Deutschland</p>
             </section>
             <section>
-                <h2>Vertreten durch die Geschäftsführer</h2>
+                <h2>Vertretungsberechtigte Gesellschafter</h2>
                 <ul>
                     <li>Luis Gianluca Giuliano (einzelvertretungsberechtigt)</li>
                     <li>Lukas Konstantin Haimayer (einzelvertretungsberechtigt)</li>
@@ -20,8 +20,8 @@ const Impressum: React.FC = () => {
                 <p>E-Mail: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a><br/>Website: <a href="https://www.gigiluko.com">https://www.gigiluko.com</a></p>
             </section>
             <section>
-                <h2>Rechtsform und Status</h2>
-                <p>Die Gesellschaft befindet sich derzeit in Gründung (i.Gr.). Die Eintragung im Handelsregister ist in Vorbereitung.</p>
+                <h2>Rechtsform</h2>
+                <p>Gesellschaft bürgerlichen Rechts (GbR). Gesellschafter: Luis Gianluca Giuliano, Lukas Konstantin Haimayer.</p>
             </section>
             <section>
                 <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>

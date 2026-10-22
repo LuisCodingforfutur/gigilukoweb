@@ -7,7 +7,7 @@ const TermsOfService: React.FC = () => {
             <section>
                 <h2>1. Provider and Scope</h2>
                 <p>These Terms of Service govern the use of the mobile application <strong>GIGILUKO</strong> (the "App") provided by:</p>
-                <p><strong>GIGILUKO Technologies UG (haftungsbeschränkt) i.Gr.</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Germany<br/>Email: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a></p>
+                <p><strong>GIGILUKO Technologies GbR</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Germany<br/>Email: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a></p>
                 <p>By creating an account, you accept these Terms of Service.</p>
             </section>
             <section>

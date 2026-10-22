@@ -6,7 +6,7 @@ const DigitalServicesAct: React.FC = () => {
         <LegalPage title="Digital Services Act (DSA)" lastUpdated="May 2026">
             <section>
                 <h2>1. Single Point of Contact (Art. 11 & 12 DSA)</h2>
-                <p>In accordance with Articles 11 and 12 of the EU Digital Services Act (DSA), GIGILUKO Technologies UG has designated the following single point of contact for communications with Member States' authorities, the European Commission, the European Board for Digital Services, and our users:</p>
+                <p>In accordance with Articles 11 and 12 of the EU Digital Services Act (DSA), GIGILUKO Technologies GbR has designated the following single point of contact for communications with Member States' authorities, the European Commission, the European Board for Digital Services, and our users:</p>
                 <p><strong>Email:</strong> <a href="mailto:legal@gigiluko.com">legal@gigiluko.com</a></p>
                 <p>Communications can be conducted in <strong>German</strong> and <strong>English</strong>.</p>
             </section>

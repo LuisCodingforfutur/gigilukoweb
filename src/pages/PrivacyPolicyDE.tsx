@@ -7,7 +7,7 @@ const PrivacyPolicyDE: React.FC = () => {
             <section>
                 <h2>1. Verantwortlicher</h2>
                 <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
-                <p><strong>GIGILUKO Technologies UG (haftungsbeschränkt) i.Gr.</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Deutschland<br/>E-Mail: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a><br/>Geschäftsführer: Luis Gianluca Giuliano, Lukas Konstantin Haimayer</p>
+                <p><strong>GIGILUKO Technologies GbR</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Deutschland<br/>E-Mail: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a><br/>Gesellschafter: Luis Gianluca Giuliano, Lukas Konstantin Haimayer</p>
             </section>
             
             <section>

@@ -7,7 +7,7 @@ const PrivacyPolicy: React.FC = () => {
             <section>
                 <h2>1. Controller</h2>
                 <p>The controller responsible for data processing under the EU General Data Protection Regulation (GDPR) is:</p>
-                <p><strong>GIGILUKO Technologies UG (haftungsbeschränkt) i.Gr.</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Germany<br/>Email: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a><br/>Managing Directors: Luis Gianluca Giuliano, Lukas Konstantin Haimayer</p>
+                <p><strong>GIGILUKO Technologies GbR</strong><br/>Sirnauerstraße 1<br/>73779 Deizisau<br/>Germany<br/>Email: <a href="mailto:support@gigiluko.com">support@gigiluko.com</a><br/>Partners: Luis Gianluca Giuliano, Lukas Konstantin Haimayer</p>
             </section>
             
             <section>
